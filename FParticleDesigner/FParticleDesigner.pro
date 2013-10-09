@@ -37,7 +37,11 @@ SOURCES += \
     src/core/MpProject.cc \
     src/core/MpParticleEffect.cc \
     src/MpGlobal.cc \
-    src/MpMsgCenter.cc
+    src/MpMsgCenter.cc \
+    src/widget/MpMainWindow.cc \
+    src/widget/MpProjectExploreWidget.cc \
+    src/widget/MpProjectExploreModel.cc \
+    src/core/MpIdentify.cc
 
 HEADERS  += \
     src/widget/MpPropertyWidget.h \
@@ -50,7 +54,11 @@ HEADERS  += \
     src/core/MpProject.h \
     src/core/MpParticleEffect.h \
     src/MpGlobal.h \
-    src/MpMsgCenter.h
+    src/MpMsgCenter.h \
+    src/widget/MpMainWindow.h \
+    src/widget/MpProjectExploreWidget.h \
+    src/widget/MpProjectExploreModel.h \
+    src/core/MpIdentify.h
 
 FORMS    += \
     ui/emiter_setting.ui \

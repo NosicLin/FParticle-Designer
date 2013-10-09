@@ -3,13 +3,18 @@
 
 #include <vector>
 #include <string>
+#include "core/MpIdentify.h"
 
 class MpParticleEffect;
-class MpProject 
+class MpProject :public MpIdentify
 {
 	public:
 		MpProject();
 		~MpProject();
+
+	public:
+		virtual int getClassType();
+		virtual const char* className();
 
 	public:
 		std::string getName();

@@ -22,6 +22,7 @@ MpAttrOperator* MpGlobal::attrOperator()
 	return m_attrOperator;
 }
 
+
 MpMsgCenter* MpGlobal::msgCenter()
 {
 	return m_msgCenter;
@@ -29,13 +30,22 @@ MpMsgCenter* MpGlobal::msgCenter()
 
 
 
-MpProject* MpGlobal::project()
+
+MpProject* MpGlobal::getCurProject()
 {
 	return m_project;
 }
 
+void  MpGlobal::setCurProject(MpProject* proj)
+{
+	if(m_project)
+	{
+		delete m_project;
+	}
+	m_project=proj;
+}
 
-MpParticleEffect* MpGlobal::curMpParticleEffect()
+MpParticleEffect* MpGlobal::getCurMpParticleEffect()
 {
 	if(!m_project)
 	{
@@ -46,7 +56,15 @@ MpParticleEffect* MpGlobal::curMpParticleEffect()
 	return ret;
 }
 
-Particle2DEmitter* MpGlobal::curParticle2DEmitter()
+
+void MpGlobal::setCurMpParticleEffectt(MpParticleEffect* effect)
+{
+	assert(m_project);
+    m_project->setCurParticleEffect(effect);
+}
+
+
+Particle2DEmitter* MpGlobal::getCurParticle2DEmitter()
 {
 	if(!m_project)
 	{
@@ -62,16 +80,6 @@ Particle2DEmitter* MpGlobal::curParticle2DEmitter()
     Particle2DEmitter* ret=pf->getParticleEmitter();
 	return ret;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

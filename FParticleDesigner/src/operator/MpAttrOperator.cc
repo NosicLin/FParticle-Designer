@@ -9,7 +9,7 @@ MpAttrOperator::MpAttrOperator()
 
 void MpAttrOperator::onSetDurationTime(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter) 
 	{
 		emitter->setDurationTime(value);
@@ -18,7 +18,7 @@ void MpAttrOperator::onSetDurationTime(double value)
 
 void MpAttrOperator::onSetDurationTimeVar(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter) 
 	{
 		emitter->setDurationTimeVar(value);
@@ -27,7 +27,7 @@ void MpAttrOperator::onSetDurationTimeVar(double value)
 
 void MpAttrOperator::onSetMaxParticleNu(int num)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter) 
 	{
 		emitter->setMaxParticleNu(num);
@@ -36,7 +36,7 @@ void MpAttrOperator::onSetMaxParticleNu(int num)
 
 void MpAttrOperator::onSetEmitterSpeed(int num)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter) 
 	{
         emitter->setEmitSpeed(num);
@@ -45,7 +45,7 @@ void MpAttrOperator::onSetEmitterSpeed(int num)
 
 void MpAttrOperator::onSetLifeTime(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter) 
 	{
 		emitter->setLifeTime(value);
@@ -54,7 +54,7 @@ void MpAttrOperator::onSetLifeTime(double value)
 
 void MpAttrOperator::onSetLifeTimeVar(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter) 
 	{
 		emitter->setLifeTimeVar(value);
@@ -65,7 +65,7 @@ void MpAttrOperator::onSetLifeTimeVar(double value)
 
 void MpAttrOperator::onSetStartSize(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setStartSize(value);
@@ -74,7 +74,7 @@ void MpAttrOperator::onSetStartSize(double value)
 
 void MpAttrOperator::onSetStartSizeVar(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setStartSizeVar(value);
@@ -83,7 +83,7 @@ void MpAttrOperator::onSetStartSizeVar(double value)
 
 void MpAttrOperator::onSetEndSize(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setEndSize(value);
@@ -92,7 +92,7 @@ void MpAttrOperator::onSetEndSize(double value)
 
 void MpAttrOperator::onSetEndSizeVar(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setEndSizeVar(value);
@@ -101,7 +101,7 @@ void MpAttrOperator::onSetEndSizeVar(double value)
 
 void MpAttrOperator::onSetStartColorRed(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Color c=emitter->getStartColor();
@@ -112,7 +112,7 @@ void MpAttrOperator::onSetStartColorRed(int value)
 
 void MpAttrOperator::onSetStartColorRedVar(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Color c=emitter->getStartColorVar();
@@ -125,7 +125,7 @@ void MpAttrOperator::onSetStartColorRedVar(int value)
 
 void MpAttrOperator::onSetStartColorGreen(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Color c=emitter->getStartColor();
@@ -136,7 +136,7 @@ void MpAttrOperator::onSetStartColorGreen(int value)
 
 void MpAttrOperator::onSetStartColorGreenVar(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Color c=emitter->getStartColorVar();
@@ -148,7 +148,7 @@ void MpAttrOperator::onSetStartColorGreenVar(int value)
 
 void MpAttrOperator::onSetStartColorBlue(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Color c=emitter->getStartColor();
@@ -159,7 +159,7 @@ void MpAttrOperator::onSetStartColorBlue(int value)
 
 void MpAttrOperator::onSetStartColorBlueVar(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Color c=emitter->getStartColorVar();
@@ -171,7 +171,7 @@ void MpAttrOperator::onSetStartColorBlueVar(int value)
 
 void MpAttrOperator::onSetStartColorAlpha(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Color c=emitter->getStartColor();
@@ -182,7 +182,7 @@ void MpAttrOperator::onSetStartColorAlpha(int value)
 
 void MpAttrOperator::onSetStartColorAlphaVar(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Color c=emitter->getStartColorVar();
@@ -195,7 +195,7 @@ void MpAttrOperator::onSetStartColorAlphaVar(int value)
 
 void MpAttrOperator::onSetEndColorRed(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Color c=emitter->getEndColor();
@@ -206,7 +206,7 @@ void MpAttrOperator::onSetEndColorRed(int value)
 
 void MpAttrOperator::onSetEndColorRedVar(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Color c=emitter->getEndColorVar();
@@ -217,7 +217,7 @@ void MpAttrOperator::onSetEndColorRedVar(int value)
 
 void MpAttrOperator::onSetEndColorGreen(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Color c=emitter->getEndColor();
@@ -228,7 +228,7 @@ void MpAttrOperator::onSetEndColorGreen(int value)
 
 void MpAttrOperator::onSetEndColorGreenVar(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Color c=emitter->getEndColorVar();
@@ -241,7 +241,7 @@ void MpAttrOperator::onSetEndColorGreenVar(int value)
 
 void MpAttrOperator::onSetEndColorBlue(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Color c=emitter->getEndColor();
@@ -252,7 +252,7 @@ void MpAttrOperator::onSetEndColorBlue(int value)
 
 void MpAttrOperator::onSetEndColorBlueVar(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Color c=emitter->getEndColorVar();
@@ -265,7 +265,7 @@ void MpAttrOperator::onSetEndColorBlueVar(int value)
 
 void MpAttrOperator::onSetEndColorAlpha(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Color c=emitter->getEndColor();
@@ -276,7 +276,7 @@ void MpAttrOperator::onSetEndColorAlpha(int value)
 
 void MpAttrOperator::onSetEndColorAlphaVar(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Color c=emitter->getEndColorVar();
@@ -287,7 +287,7 @@ void MpAttrOperator::onSetEndColorAlphaVar(int value)
 
 void MpAttrOperator::onSetAngle(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setAngle(value);
@@ -296,7 +296,7 @@ void MpAttrOperator::onSetAngle(double value)
 
 void MpAttrOperator::onSetAngleVar(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setAngleVar(value);
@@ -306,7 +306,7 @@ void MpAttrOperator::onSetAngleVar(double value)
 
 void MpAttrOperator::onSetStartRotation(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setStartRotation(value);
@@ -316,7 +316,7 @@ void MpAttrOperator::onSetStartRotation(double value)
 
 void MpAttrOperator::onSetStartRotationVar(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setStartRotationVar(value);
@@ -326,7 +326,7 @@ void MpAttrOperator::onSetStartRotationVar(double value)
 
 void MpAttrOperator::onSetEndRotation(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setEndRotation(value);
@@ -335,7 +335,7 @@ void MpAttrOperator::onSetEndRotation(double value)
 
 void MpAttrOperator::onSetEndRotationVar(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setEndRotationVar(value);
@@ -344,7 +344,7 @@ void MpAttrOperator::onSetEndRotationVar(double value)
 
 void MpAttrOperator::onSetPositionX(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Vector2 pos=emitter->getPosition();
@@ -356,7 +356,7 @@ void MpAttrOperator::onSetPositionX(double value)
 
 void MpAttrOperator::onSetPositionXVar(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Vector2 pos=emitter->getPositionVar();
@@ -368,7 +368,7 @@ void MpAttrOperator::onSetPositionXVar(double value)
 
 void MpAttrOperator::onSetPositionY(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Vector2 pos=emitter->getPosition();
@@ -381,7 +381,7 @@ void MpAttrOperator::onSetPositionY(double value)
 
 void MpAttrOperator::onSetPositionYVar(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Vector2 pos=emitter->getPositionVar();
@@ -395,7 +395,7 @@ void MpAttrOperator::onSetPositionYVar(double value)
 
 void MpAttrOperator::onSetMoveMode(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setMoveMode(value);
@@ -405,7 +405,7 @@ void MpAttrOperator::onSetMoveMode(int value)
 
 void MpAttrOperator::onSetBlendSrc(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setBlendSrc(value);
@@ -414,7 +414,7 @@ void MpAttrOperator::onSetBlendSrc(int value)
 
 void MpAttrOperator::onSetBlendDst(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setBlendDst(value);
@@ -423,7 +423,7 @@ void MpAttrOperator::onSetBlendDst(int value)
 
 void MpAttrOperator::onSetTexture(Faeris::Texture2D* value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setTexture(value);
@@ -433,7 +433,7 @@ void MpAttrOperator::onSetTexture(Faeris::Texture2D* value)
 
 void MpAttrOperator::onSetEnvMode(int value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
         emitter->setEnvironmentMode(value);
@@ -443,7 +443,7 @@ void MpAttrOperator::onSetEnvMode(int value)
 
 void MpAttrOperator::onSetSpeed(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setSpeed(value);
@@ -452,7 +452,7 @@ void MpAttrOperator::onSetSpeed(double value)
 
 void MpAttrOperator::onSetSpeedVar(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setSpeedVar(value);
@@ -461,7 +461,7 @@ void MpAttrOperator::onSetSpeedVar(double value)
 
 void MpAttrOperator::onSetGravityX(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Vector2 gravity=emitter->getGravity();
@@ -472,7 +472,7 @@ void MpAttrOperator::onSetGravityX(double value)
 
 void MpAttrOperator::onSetGravityY(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		Vector2 gravity=emitter->getGravity();
@@ -484,7 +484,7 @@ void MpAttrOperator::onSetGravityY(double value)
 
 void MpAttrOperator::onSetRadialAcceleration(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setRadialAcceleration(value);
@@ -494,7 +494,7 @@ void MpAttrOperator::onSetRadialAcceleration(double value)
 
 void MpAttrOperator::onSetRadialAccelerationVar(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setRadialAccelerationVar(value);
@@ -504,7 +504,7 @@ void MpAttrOperator::onSetRadialAccelerationVar(double value)
 
 void MpAttrOperator::onSetTangentialAcceleration(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setTangentialAcceleration(value);
@@ -515,7 +515,7 @@ void MpAttrOperator::onSetTangentialAcceleration(double value)
 
 void MpAttrOperator::onSetTangentialAccelerationVar(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setTangentialAccelerationVar(value);
@@ -524,7 +524,7 @@ void MpAttrOperator::onSetTangentialAccelerationVar(double value)
 
 void MpAttrOperator::onSetStartRadius(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setStartRadius(value);
@@ -533,7 +533,7 @@ void MpAttrOperator::onSetStartRadius(double value)
 
 void MpAttrOperator::onSetStartRadiusVar(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setStartRadiusVar(value);
@@ -542,7 +542,7 @@ void MpAttrOperator::onSetStartRadiusVar(double value)
 
 void MpAttrOperator::onSetEndRadius(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setEndRadius(value);
@@ -551,7 +551,7 @@ void MpAttrOperator::onSetEndRadius(double value)
 
 void MpAttrOperator::onSetEndRadiusVar(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setEndRadiusVar(value);
@@ -560,7 +560,7 @@ void MpAttrOperator::onSetEndRadiusVar(double value)
 
 void MpAttrOperator::onSetRotateSpeed(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setRotateSpeed(value);
@@ -570,7 +570,7 @@ void MpAttrOperator::onSetRotateSpeed(double value)
 
 void MpAttrOperator::onSetRotateSpeedVar(double value)
 {
-	Particle2DEmitter* emitter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter)
 	{
 		emitter->setRotateSpeedVar(value);

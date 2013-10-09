@@ -37,6 +37,19 @@ MpParticleEffect* MpParticleEffect::create(FsDict* dict)
 	return ret;
 }
 
+int MpParticleEffect::getClassType()
+{
+	return MP_PARTICLE;
+}
+
+const char* MpParticleEffect::className()
+{
+	return "ParticleEffect";
+}
+
+
+
+
 void MpParticleEffect::setName(const char* name)
 {
 	m_name=std::string(name);
@@ -80,6 +93,17 @@ bool MpParticleEffect::init(FsDict* dict)
 
 
 
+
+
+void MpParticleEffect::setProject(MpProject* proj)
+{
+	m_project=proj;
+}
+
+MpProject* MpParticleEffect::getProject()
+{
+	return m_project;
+}
 
 
 

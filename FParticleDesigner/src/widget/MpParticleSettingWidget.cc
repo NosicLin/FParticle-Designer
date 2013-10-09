@@ -105,7 +105,7 @@ void MpParticleSettingWidget::connectSignal()
 
 void MpParticleSettingWidget::slotCurParticleEffectChange()
 {
-	Particle2DEmitter* emiter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emiter=MpGlobal::getCurParticle2DEmitter();
 
 	if(emiter)
 	{

@@ -1,5 +1,6 @@
 #include <assert.h>
 #include "core/MpProject.h"
+#include "core/MpParticleEffect.h"
 
 
 MpProject::MpProject()
@@ -12,6 +13,16 @@ MpProject::~MpProject()
 {
 }
 
+
+int MpProject::getClassType()
+{
+	return MP_PROJECT;
+}
+
+const char* MpProject::className()
+{
+	return "MpProject";
+}
 
 
 std::string MpProject::getName()
@@ -29,6 +40,7 @@ void MpProject::setName(const char* name)
 void MpProject::addParticleEffect(MpParticleEffect* ef) 
 {
 	m_particleEffects.push_back(ef);
+	ef->setProject(this);
 }
 
 void MpProject::removeParticleEffect(MpParticleEffect* ef)
@@ -50,6 +62,12 @@ int MpProject::getParticleEffectNu()
 	return m_particleEffects.size();
 }
 
+MpParticleEffect* MpProject::getParticleEffect(int index)
+{
+	return m_particleEffects[index];
+}
+
+
 MpParticleEffect* MpProject::getCurParticleEffect()
 {
 	return m_curParticleEffect;
@@ -60,4 +78,10 @@ void MpProject::setCurParticleEffect(MpParticleEffect* effect)
 {
 	m_curParticleEffect=effect;
 }
+
+
+
+
+
+
 

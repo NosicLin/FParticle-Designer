@@ -8,12 +8,14 @@ class MpMsgCenter: public QObject
 	public:
 		MpMsgCenter();
 
+
     signals:
+		void signalCurProjectChange();
 		void signalCurParticleEffectChange();
 
 	public:
 		void emitCurParticleEffectChange();
-
+		void emitCurProjectChange();
 };
 
 

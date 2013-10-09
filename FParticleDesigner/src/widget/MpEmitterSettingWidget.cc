@@ -44,7 +44,7 @@ void MpEmitterSettingWidget::connectSignal()
 
 void MpEmitterSettingWidget::onCurParticleEffectChange()
 {
-	Particle2DEmitter* emiter=MpGlobal::curParticle2DEmitter();
+    Particle2DEmitter* emiter=MpGlobal::getCurParticle2DEmitter();
 
 	if(emiter)
 	{

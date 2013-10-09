@@ -70,7 +70,7 @@ void MpParticleViewWidget::paintGL()
 	Global::render()->setClearColor(Color::BLACK);
 	Global::render()->clear();
 
-	MpParticleEffect* mp_effect=MpGlobal::curMpParticleEffect();
+    MpParticleEffect* mp_effect=MpGlobal::getCurMpParticleEffect();
 	if(!mp_effect)
 	{
 		return ;
@@ -115,7 +115,7 @@ void MpParticleViewWidget::mousePressEvent(QMouseEvent* event)
 {
 	Vector2 pos=toEditCoord(Vector2(event->x(),event->y()));
 
-	MpParticleEffect* mp_effect=MpGlobal::curMpParticleEffect();
+    MpParticleEffect* mp_effect=MpGlobal::getCurMpParticleEffect();
 	if(!mp_effect)
 	{
         return ;
@@ -131,7 +131,7 @@ void MpParticleViewWidget::timerUpdate()
 {
     m_timer->start(16);
 
-	MpParticleEffect* mp_effect=MpGlobal::curMpParticleEffect();
+    MpParticleEffect* mp_effect=MpGlobal::getCurMpParticleEffect();
 	if(!mp_effect)
 	{
 		return ;
