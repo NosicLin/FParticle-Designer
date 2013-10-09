@@ -1,6 +1,7 @@
 #include "widget/MpEnvironmentSettingWidget.h"
 #include "MpGlobal.h"
 #include "operator/MpAttrOperator.h"
+#include "operator/MpOperator.h"
 #include "stage/entity/FsParticle2DEmitter.h"
 #include "MpMsgCenter.h"
 
@@ -25,7 +26,7 @@ void MpEnvironmentSettingWidget::init()
 
 void MpEnvironmentSettingWidget::connectSignal()
 {
-	MpAttrOperator* attr=MpGlobal::attrOperator();
+    MpAttrOperator* attr=MpOperator::attr();
 
 	/* gravity */
 	connect(m_ui->m_eg_gravityXValue,SIGNAL(valueChanged(double)),attr,SLOT(onSetGravityX(double)));
@@ -110,14 +111,14 @@ void MpEnvironmentSettingWidget::setEvnMode(int mode)
 	{
 		m_ui->m_modeSelect->setCurrentIndex(0);
 		m_ui->m_stackWidget->setCurrentIndex(0);
-		MpGlobal::attrOperator()->onSetEnvMode(Particle2DEmitter::ENV_GRAVITY);
+        MpOperator::attr()->onSetEnvMode(Particle2DEmitter::ENV_GRAVITY);
 
 	}
 	else 
 	{
 		m_ui->m_modeSelect->setCurrentIndex(1);
 		m_ui->m_stackWidget->setCurrentIndex(1);
-		MpGlobal::attrOperator()->onSetEnvMode(Particle2DEmitter::ENV_RADIAL);
+        MpOperator::attr()->onSetEnvMode(Particle2DEmitter::ENV_RADIAL);
 	}
 }
 
@@ -127,12 +128,12 @@ void MpEnvironmentSettingWidget::slotSelectModeChange(int index)
 	if(index==MP_MODEL_GRAVITY)
 	{
 		m_ui->m_stackWidget->setCurrentIndex(0);
-		MpGlobal::attrOperator()->onSetEnvMode(Particle2DEmitter::ENV_GRAVITY);
+        MpOperator::attr()->onSetEnvMode(Particle2DEmitter::ENV_GRAVITY);
 	}
 	else 
 	{
 		m_ui->m_stackWidget->setCurrentIndex(1);
-		MpGlobal::attrOperator()->onSetEnvMode(Particle2DEmitter::ENV_RADIAL);
+        MpOperator::attr()->onSetEnvMode(Particle2DEmitter::ENV_RADIAL);
 	}
 
 

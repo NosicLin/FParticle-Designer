@@ -20,8 +20,8 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-	MpGlobal_ModuleInit();
-    MpGlobal::m_project=new MpProject;
+
+
 
     MpMainWindow win;
 
@@ -29,16 +29,29 @@ int main(int argc, char *argv[])
     win.showMaximized();
     win.show();
 
-	MpParticleEffect*  effect=createMpParticleEffect();
+	MpParticleEffect* effect1=createMpParticleEffect("file.fpl");
+	MpParticleEffect* effect2=createMpParticleEffect("ballfire.fpl");
 
-    MpGlobal::getCurProject()->addParticleEffect(effect);
-    MpGlobal::getCurProject()->setCurParticleEffect(effect);
+    MpProject* proj=new MpProject;
+    MpGlobal::setCurProject(proj);
+    proj->setName("Runner");
 
-    effect->getParticleEffect()->start();
+    MpGlobal::getCurProject()->addParticleEffect(effect1);
+	MpGlobal::getCurProject()->addParticleEffect(effect2);
+
+    MpGlobal::getCurProject()->setCurParticleEffect(effect1);
+
+    effect1->getParticleEffect()->start();
+	effect2->getParticleEffect()->start();
+
 	MpGlobal::msgCenter()->emitCurParticleEffectChange();
 
     return a.exec();
 }
+
+
+
+
 
 
 

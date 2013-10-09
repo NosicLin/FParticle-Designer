@@ -10,6 +10,8 @@
 #include "widget/MpParticleViewWidget.h"
 #include "widget/MpTextureSettingWidget.h"
 #include "widget/MpEnvironmentSettingWidget.h"
+#include "widget/MpProjectExploreWidget.h"
+
 
 class MpMainWindow:public QMainWindow 
 {
@@ -43,13 +45,13 @@ class MpMainWindow:public QMainWindow
 		MpEnvironmentSettingWidget* m_environmentSettingWidget;
 		QDockWidget* m_environmentSettingDockWidget;
 
+		/* project explore */
+		MpProjectExploreWidget* m_projectExploreWidget;
+		QDockWidget* m_projectExploreDockWidget;
+
 
 		/* particle view */
 		MpParticleViewWidget* m_particleViewWidget;
-
-
-
-
 
 	private: /* menu area */
 	

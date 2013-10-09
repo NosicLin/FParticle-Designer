@@ -1,5 +1,6 @@
 #include "widget/MpParticleSettingWidget.h"
 #include "operator/MpAttrOperator.h"
+#include "operator/MpOperator.h"
 #include "MpGlobal.h"
 #include "MpMsgCenter.h"
 
@@ -29,7 +30,7 @@ void MpParticleSettingWidget::connectSignal()
 	connect(MpGlobal::msgCenter(),SIGNAL(signalCurParticleEffectChange()),this,SLOT(slotCurParticleEffectChange()));
 
 	
-	MpAttrOperator* attr=MpGlobal::attrOperator();
+    MpAttrOperator* attr=MpOperator::attr();
 	
 
 	connect(m_ui->m_e_angleValue,SIGNAL(valueChanged(double)),

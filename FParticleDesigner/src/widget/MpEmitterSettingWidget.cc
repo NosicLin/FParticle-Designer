@@ -1,5 +1,6 @@
 #include <QtGlobal>
 #include "widget/MpEmitterSettingWidget.h"
+#include "operator/MpOperator.h"
 #include "operator/MpAttrOperator.h"
 #include "MpGlobal.h"
 #include "MpMsgCenter.h"
@@ -26,7 +27,7 @@ void MpEmitterSettingWidget::init()
 
 void MpEmitterSettingWidget::connectSignal()
 {
-    MpAttrOperator* attr=MpGlobal::attrOperator();
+    MpAttrOperator* attr=MpOperator::attr();
 
 	connect(m_ui->m_e_emitSpeed,SIGNAL(valueChanged(int)),
 			attr,SLOT(onSetEmitterSpeed(int )));

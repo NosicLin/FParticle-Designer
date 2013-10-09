@@ -20,6 +20,8 @@ class MpProject :public MpIdentify
 		std::string getName();
 		void setName(const char* name);
 
+		bool hasParticleWithName(const char* name);
+
 	public:
 		/* particle */
 		void addParticleEffect(MpParticleEffect* ef);

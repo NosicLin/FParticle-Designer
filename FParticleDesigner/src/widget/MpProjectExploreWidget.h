@@ -6,15 +6,20 @@
 #include <QMenu>
 #include <QAction>
 
-
 class MpProjectExploreModel;
-
 
 class  MpProjectExploreWidget:public QWidget 
 {
+	Q_OBJECT
 	public:
 		MpProjectExploreWidget();
 		~MpProjectExploreWidget();
+
+	public slots:
+		void slotCurParticleEffectChange();
+		void slotCurProjectChange();
+
+		void slotMousePress(const QModelIndex& );
 
 	protected:
 		void initMenu();
@@ -39,11 +44,12 @@ class  MpProjectExploreWidget:public QWidget
 		QAction* ma_renameParticle;
 		QAction* ma_exportParticle;
 		QAction* ma_deleteParticle;
-
-
 };
 
-
-
 #endif /*_MP_PROJECT_EXPLORE_WIDGET_H_*/
+
+
+
+
+
 

@@ -14,9 +14,6 @@ NS_FS_USE
 class MpGlobal
 {
 	public:
-		/* operator */
-		static MpAttrOperator* attrOperator();
-
 		/* msg center */
 		static MpMsgCenter* msgCenter();
 
@@ -26,20 +23,18 @@ class MpGlobal
 
 		/* particle effect */
 		static MpParticleEffect* getCurMpParticleEffect();
-		static void setCurMpParticleEffectt(MpParticleEffect* effect);
+        static void setCurMpParticleEffect(MpParticleEffect* effect);
 
 		/* particle emitter */
         static Particle2DEmitter* getCurParticle2DEmitter();
 
 
-	public:
-		static MpAttrOperator* m_attrOperator;
+	private:
 		static MpProject* m_project;
 		static MpMsgCenter* m_msgCenter;
 };
 
 
-void MpGlobal_ModuleInit();
 
 
 

@@ -41,7 +41,11 @@ SOURCES += \
     src/widget/MpMainWindow.cc \
     src/widget/MpProjectExploreWidget.cc \
     src/widget/MpProjectExploreModel.cc \
-    src/core/MpIdentify.cc
+    src/core/MpIdentify.cc \
+    src/operator/MpOperator.cc \
+    src/operator/MpDataOperator.cc \
+    src/widget/SdInputDialog.cc \
+    src/operator/MpUiOperator.cc
 
 HEADERS  += \
     src/widget/MpPropertyWidget.h \
@@ -58,12 +62,17 @@ HEADERS  += \
     src/widget/MpMainWindow.h \
     src/widget/MpProjectExploreWidget.h \
     src/widget/MpProjectExploreModel.h \
-    src/core/MpIdentify.h
+    src/core/MpIdentify.h \
+    src/operator/MpOperator.h \
+    src/operator/MpDataOperator.h \
+    src/operator/MpUiOperator.h \
+    src/widget/SdInputDialog.h
 
 FORMS    += \
     ui/emiter_setting.ui \
     ui/particle_setting.ui \
     ui/environment_setting.ui \
-    ui/texture_setting.ui
+    ui/texture_setting.ui \
+    ui/input_text.ui
 
 

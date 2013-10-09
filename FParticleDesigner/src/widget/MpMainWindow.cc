@@ -81,15 +81,24 @@ void MpMainWindow::initWidget()
 
 
 
+	/* project explore */
+	m_projectExploreWidget=new MpProjectExploreWidget;
+	m_projectExploreDockWidget=new QDockWidget(QString("Project"));
+	m_projectExploreDockWidget->setWidget(m_projectExploreWidget);
+
+
+
 	/* dock widget */
     addDockWidget(Qt::LeftDockWidgetArea,m_emitterSettingDockWidget);
 	addDockWidget(Qt::LeftDockWidgetArea,m_particleSettingDockWidget);
 	addDockWidget(Qt::LeftDockWidgetArea,m_environmentSettingDockWidget);
+	addDockWidget(Qt::RightDockWidgetArea,m_projectExploreDockWidget);
     addDockWidget(Qt::RightDockWidgetArea,m_textureSettingDockWidget);
    	m_emitterSettingDockWidget->setFeatures(QDockWidget::DockWidgetMovable); 
 	m_particleSettingDockWidget->setFeatures(QDockWidget::DockWidgetMovable);
 	m_environmentSettingDockWidget->setFeatures(QDockWidget::DockWidgetMovable);
 	m_textureSettingDockWidget->setFeatures(QDockWidget::DockWidgetMovable);
+	m_projectExploreDockWidget->setFeatures(QDockWidget::DockWidgetMovable);
 
 
 

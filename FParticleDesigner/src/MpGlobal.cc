@@ -5,27 +5,18 @@
 #include "operator/MpAttrOperator.h"
 
 
-MpAttrOperator* MpGlobal::m_attrOperator=NULL;
 MpProject* MpGlobal::m_project=NULL;
 MpMsgCenter* MpGlobal::m_msgCenter=NULL;
 
 
-void MpGlobal_ModuleInit()
-{
-    MpGlobal::m_attrOperator=new MpAttrOperator;
-	MpGlobal::m_project=NULL;
-	MpGlobal::m_msgCenter=new MpMsgCenter;
-}
-
-MpAttrOperator* MpGlobal::attrOperator()
-{
-	return m_attrOperator;
-}
-
-
 MpMsgCenter* MpGlobal::msgCenter()
 {
-	return m_msgCenter;
+	if(MpGlobal::m_msgCenter==NULL)
+	{
+		MpGlobal::m_msgCenter=new MpMsgCenter;
+	}
+
+	return MpGlobal::m_msgCenter;
 }
 
 
@@ -57,7 +48,7 @@ MpParticleEffect* MpGlobal::getCurMpParticleEffect()
 }
 
 
-void MpGlobal::setCurMpParticleEffectt(MpParticleEffect* effect)
+void MpGlobal::setCurMpParticleEffect(MpParticleEffect* effect)
 {
 	assert(m_project);
     m_project->setCurParticleEffect(effect);

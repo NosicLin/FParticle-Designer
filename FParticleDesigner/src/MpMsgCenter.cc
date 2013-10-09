@@ -12,6 +12,12 @@ void MpMsgCenter::emitCurParticleEffectChange()
 }
 
 
+void MpMsgCenter::emitCurProjectChange()
+{
+	emit signalCurProjectChange();
+
+}
+
 
 
 

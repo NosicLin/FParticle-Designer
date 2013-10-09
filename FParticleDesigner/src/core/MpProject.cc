@@ -36,6 +36,19 @@ void MpProject::setName(const char* name)
 }
 
 
+bool MpProject::hasParticleWithName(const char* name)
+{
+	int particle_nu=m_particleEffects.size();
+	for(int i=0;i<particle_nu;i++)
+	{
+		if(m_particleEffects[i]->getName()==name)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
 
 void MpProject::addParticleEffect(MpParticleEffect* ef) 
 {
