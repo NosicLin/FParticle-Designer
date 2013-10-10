@@ -26,8 +26,11 @@ class MpProject :public MpIdentify
 		/* particle */
 		void addParticleEffect(MpParticleEffect* ef);
 		void removeParticleEffect(MpParticleEffect* ef);
+
 		int getParticleEffectNu();
 		MpParticleEffect* getParticleEffect(int index);
+
+		int getParticleEffectPos(MpParticleEffect* ef);
 
 		/* cur particle */
 		MpParticleEffect* getCurParticleEffect();

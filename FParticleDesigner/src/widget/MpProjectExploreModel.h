@@ -2,6 +2,7 @@
 #define _MP_PROJECT_EXPLORE_MODEL_H_ 
 #include <QAbstractItemModel>
 
+class MpParticleEffect;
 class  MpProjectExploreModel:public QAbstractItemModel 
 {
 	Q_OBJECT 
@@ -18,7 +19,8 @@ class  MpProjectExploreModel:public QAbstractItemModel
 		virtual int columnCount(const QModelIndex& parent=QModelIndex())const;
 		virtual QVariant data(const QModelIndex& index,int role=Qt::DisplayRole)const ;
 	public:
-		void refresh();
+        void refresh();
+        void particleEffectRemove(MpParticleEffect* effect);
 };
 
 

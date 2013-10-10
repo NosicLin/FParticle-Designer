@@ -2,6 +2,8 @@
 #define _MP_MSG_CENTER_H_ 
 #include <QObject>
 
+
+class MpParticleEffect;
 class MpMsgCenter: public QObject
 {
 	Q_OBJECT
@@ -12,10 +14,14 @@ class MpMsgCenter: public QObject
     signals:
 		void signalCurProjectChange();
 		void signalCurParticleEffectChange();
+		void signalParticleEffectAttrChange(MpParticleEffect* effect);
+		void signalRemoveParticleEffect(MpParticleEffect* effect);
 
 	public:
 		void emitCurParticleEffectChange();
 		void emitCurProjectChange();
+		void emitParticleEffectAttrChange(MpParticleEffect* effect);
+		void emitRemoveParticleEffect(MpParticleEffect* effect);
 };
 
 

@@ -7,6 +7,7 @@
 #include <QAction>
 
 class MpProjectExploreModel;
+class MpParticleEffect;
 
 class  MpProjectExploreWidget:public QWidget 
 {
@@ -16,10 +17,13 @@ class  MpProjectExploreWidget:public QWidget
 		~MpProjectExploreWidget();
 
 	public slots:
+		void slotMousePress(const QModelIndex& );
+
 		void slotCurParticleEffectChange();
 		void slotCurProjectChange();
+		void slotParticleEffectAttrChange(MpParticleEffect* effect);
+		void slotRemoveParticleEffect(MpParticleEffect* effect);
 
-		void slotMousePress(const QModelIndex& );
 
 	protected:
 		void initMenu();

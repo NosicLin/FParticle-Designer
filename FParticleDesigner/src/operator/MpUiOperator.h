@@ -6,10 +6,12 @@
 class MpUiOperator:public QObject
 {
     Q_OBJECT
+
 	public slots:
 		void newParticle();
+		void renameParticle();
 		void exportAll();
-
+		void removeParticle();
 };
 
 

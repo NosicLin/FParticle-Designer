@@ -29,14 +29,35 @@ void MpDataOperator::addParticleEffect(MpProject* proj,MpParticleEffect* effect)
 
 void MpDataOperator::removeParticleEffect(MpProject* proj,MpParticleEffect* effect)
 {
-	proj->removeParticleEffect(effect);
 	if(proj->getCurParticleEffect()==effect)
 	{
 		proj->setCurParticleEffect(NULL);
 		MpGlobal::msgCenter()->emitCurParticleEffectChange();
+
 	}
 
+	proj->removeParticleEffect(effect);
+	MpGlobal::msgCenter()->emitRemoveParticleEffect(effect);
+
+	//qDebug("%x",long(effect));
+    //delete effect;
 }
+
+
+void MpDataOperator::renameParticleEffect(MpParticleEffect* effect,const char* name)
+{
+	effect->setName(name);
+	MpGlobal::msgCenter()->emitParticleEffectAttrChange(effect);
+}
+
+
+
+
+
+
+
+
+
 
 
 

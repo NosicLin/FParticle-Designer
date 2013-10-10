@@ -1,3 +1,4 @@
+#include <QtGlobal>
 #include "widget/MpProjectExploreModel.h"
 #include "MpGlobal.h"
 #include "core/MpProject.h"
@@ -29,7 +30,11 @@ QModelIndex MpProjectExploreModel::index(int row,int column,
 	{
 		case MP_PROJECT:
 			{
-				MpProject* proj=(MpProject*)idfier;
+                MpProject* proj=(MpProject*)idfier;
+                if(row>=proj->getParticleEffectNu())
+                {
+                    return QModelIndex();
+                }
                 MpParticleEffect* effect=proj->getParticleEffect(row);
 				return createIndex(row,column,effect);
 			}
@@ -65,6 +70,7 @@ QModelIndex MpProjectExploreModel::parent(const QModelIndex& child)const
 
 int MpProjectExploreModel::rowCount(const QModelIndex& parent)const
 {
+    //qDebug("Row Count");
 	if(parent.column()>0)
 	{
 		return 0;
@@ -131,10 +137,19 @@ QVariant MpProjectExploreModel::data(const QModelIndex& index,int role)const
 
 void MpProjectExploreModel::refresh()
 {
-	emit layoutChanged();
+    emit layoutChanged();
 }
 
 
+void MpProjectExploreModel::particleEffectRemove(MpParticleEffect* effect)
+{
+	emit layoutAboutToBeChanged();
+	MpProject* proj=effect->getProject();
+
+	changePersistentIndex(createIndex(proj->getParticleEffectPos(effect),0,effect),QModelIndex());
+
+    emit layoutChanged();
+}
 
 
 

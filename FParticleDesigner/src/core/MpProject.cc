@@ -75,6 +75,20 @@ int MpProject::getParticleEffectNu()
 	return m_particleEffects.size();
 }
 
+int MpProject::getParticleEffectPos(MpParticleEffect* ef)
+{
+	int particle_nu=m_particleEffects.size();
+	for(int i=0;i<particle_nu;i++)
+	{
+		if(m_particleEffects[i]==ef)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+
 MpParticleEffect* MpProject::getParticleEffect(int index)
 {
 	return m_particleEffects[index];

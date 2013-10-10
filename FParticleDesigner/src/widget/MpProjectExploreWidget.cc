@@ -1,3 +1,4 @@
+#include <QtGlobal>
 #include <QApplication>
 #include <QVBoxLayout>
 
@@ -18,8 +19,10 @@ MpProjectExploreWidget::MpProjectExploreWidget()
 	connectSignal();
 }
 
+
 MpProjectExploreWidget::~MpProjectExploreWidget()
 {
+
 }
 
 
@@ -43,13 +46,12 @@ void MpProjectExploreWidget::initWidget()
 	/* view */
 	m_projectExploreView=new QTreeView(this);
 	m_projectExploreView->setHeaderHidden(true);
+	m_projectExploreView->collapseAll();
 
 	/* model */
 	m_projectExploreModel=new MpProjectExploreModel();
-
-
-
 	m_projectExploreView->setModel(m_projectExploreModel);
+
 
 	QVBoxLayout* vlayout=new QVBoxLayout;
     vlayout->addWidget(m_projectExploreView);
@@ -61,15 +63,29 @@ void MpProjectExploreWidget::initWidget()
 void MpProjectExploreWidget::connectSignal()
 {
 
-    connect(MpGlobal::msgCenter(),SIGNAL(signalCurParticleEffectChange()),this,SLOT(slotCurParticleEffectChange()));
+    connect(MpGlobal::msgCenter(),SIGNAL(signalCurParticleEffectChange()),
+			this,SLOT(slotCurParticleEffectChange()));
 
-    connect(MpGlobal::msgCenter(),SIGNAL(signalCurProjectChange()),this,SLOT(slotCurProjectChange()));
+    connect(MpGlobal::msgCenter(),SIGNAL(signalCurProjectChange()),
+			this,SLOT(slotCurProjectChange()));
 
-    connect(m_projectExploreView,SIGNAL(pressed(const QModelIndex&)),this, SLOT(slotMousePress(const QModelIndex&)));
+    connect(MpGlobal::msgCenter(),SIGNAL(signalParticleEffectAttrChange(MpParticleEffect*)),
+			this,SLOT(slotParticleEffectAttrChange(MpParticleEffect*)));
+
+	connect(MpGlobal::msgCenter(),SIGNAL(signalRemoveParticleEffect(MpParticleEffect* )),
+			this,SLOT(slotRemoveParticleEffect(MpParticleEffect* )));
+
+    connect(m_projectExploreView,SIGNAL(pressed(const QModelIndex&)),
+			this, SLOT(slotMousePress(const QModelIndex&)));
+
+
 
 	/* project */
     connect(ma_newParticle,SIGNAL(triggered()),MpOperator::ui(), SLOT(newParticle()));
 
+	/* particle */
+	connect(ma_renameParticle,SIGNAL(triggered()),MpOperator::ui(),SLOT(renameParticle()));
+	connect(ma_deleteParticle,SIGNAL(triggered()),MpOperator::ui(),SLOT(removeParticle()));
 }
 
 void MpProjectExploreWidget::slotCurProjectChange()
@@ -82,6 +98,17 @@ void MpProjectExploreWidget::slotCurParticleEffectChange()
 {
     m_projectExploreModel->refresh();
 }
+
+void MpProjectExploreWidget::slotParticleEffectAttrChange(MpParticleEffect* /* effect */)
+{
+	m_projectExploreModel->refresh();
+}
+
+void MpProjectExploreWidget::slotRemoveParticleEffect(MpParticleEffect*  effect )
+{
+	m_projectExploreModel->refresh();
+}
+
 
 void MpProjectExploreWidget::slotMousePress(const QModelIndex& index)
 {
@@ -101,22 +128,20 @@ void MpProjectExploreWidget::slotMousePress(const QModelIndex& index)
 
     if((QApplication::mouseButtons()&Qt::RightButton))
     {
-        switch(idfier->getClassType())
-        {
-        case MP_PROJECT:
-        {
-            mn_project->popup(QCursor::pos());
-            break;
-        }
-        case MP_PARTICLE:
-        {
-            mn_particle->popup(QCursor::pos());
-            break;
-        }
-
-
-        }
-    }
+		switch(idfier->getClassType())
+		{
+			case MP_PROJECT:
+				{
+					mn_project->popup(QCursor::pos());
+					break;
+				}
+			case MP_PARTICLE:
+				{
+					mn_particle->popup(QCursor::pos());
+					break;
+				}
+		}
+	}
 
 
 

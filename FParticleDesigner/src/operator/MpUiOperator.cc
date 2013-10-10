@@ -54,4 +54,57 @@ void MpUiOperator::exportAll()
 }
 
 
+void MpUiOperator::renameParticle()
+{
+	MpParticleEffect* effect=MpGlobal::getCurMpParticleEffect();
+	SdInputDialog dialog("Rename Particle",effect->getName().c_str());
+
+	if(dialog.exec()==QDialog::Accepted)
+	{
+		std::string name=dialog.getTextField();
+		if(name=="")
+		{
+			QMessageBox msg(QMessageBox::Warning,"Rename Particle","Name Can't Be Empty String");
+			msg.exec();
+		}
+		else if(MpGlobal::getCurProject()->hasParticleWithName(name.c_str()))
+		{
+			QMessageBox msg(QMessageBox::Warning,"Rename Particle",QString("Name(")+QString(name.c_str())+") Alread Exist"); 
+			msg.exec();
+		}
+		else 
+		{
+            MpOperator::data()->renameParticleEffect(effect,name.c_str());
+		}
+
+	}
+}
+
+void MpUiOperator::removeParticle()
+{
+	MpProject* proj=MpGlobal::getCurProject();
+	MpParticleEffect* effect=MpGlobal::getCurMpParticleEffect();
+	std::string name=effect->getName();
+
+	QMessageBox msg(QMessageBox::Warning,"Delete Partile",QString("Are You Sure To Remove ParticleEffect (")+QString(name.c_str())+")",QMessageBox::Ok|QMessageBox::Cancel);
+
+	if(msg.exec()==QMessageBox::Ok)
+	{
+		MpOperator::data()->removeParticleEffect(proj,effect);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
 

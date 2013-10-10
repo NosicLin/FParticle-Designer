@@ -11,6 +11,7 @@ class MpDataOperator
 
 		void addParticleEffect(MpProject* proj,MpParticleEffect* effect);
 		void removeParticleEffect(MpProject* proj,MpParticleEffect* effect);
+		void renameParticleEffect(MpParticleEffect* effect,const char* name);
 };
 
 #endif /*_MP_DATA_OPERATOR_H_*/
