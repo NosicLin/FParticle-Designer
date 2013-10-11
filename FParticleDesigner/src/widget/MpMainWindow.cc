@@ -1,10 +1,13 @@
 #include <QMenuBar>
 #include "widget/MpMainWindow.h"
+#include "operator/MpOperator.h"
+#include "operator/MpUiOperator.h"
 
 MpMainWindow::MpMainWindow()
 {
 	initMenuBar();
 	initWidget();
+	connectSignal();
 }
 
 
@@ -106,6 +109,19 @@ void MpMainWindow::initWidget()
 	m_particleViewWidget=new MpParticleViewWidget;
     setCentralWidget(m_particleViewWidget);
 }
+
+void MpMainWindow::connectSignal()
+{
+	connect(ma_saveProject,SIGNAL(triggered()),MpOperator::ui(),SLOT(saveProject()));
+
+	connect(ma_openProject,SIGNAL(triggered()),MpOperator::ui(),SLOT(loadProject()));
+
+	connect(ma_closeProject,SIGNAL(triggered()),MpOperator::ui(),SLOT(closeProject()));
+	connect(ma_exportParticle,SIGNAL(triggered()),MpOperator::ui(),SLOT(exportParticleEffect()));
+
+	connect(ma_exportAll,SIGNAL(triggered()),MpOperator::ui(),SLOT(exportAllParticleEffect()));
+}
+
 
 
 

@@ -21,6 +21,11 @@ void MpMsgCenter::emitParticleEffectAttrChange(MpParticleEffect* effect)
 	emit signalParticleEffectAttrChange(effect);
 }
 
+void MpMsgCenter::emitAddParticleEffect(MpParticleEffect* effect)
+{
+	emit signalAddParticleEffect(effect);
+}
+
 void MpMsgCenter::emitRemoveParticleEffect(MpParticleEffect* effect)
 {
 	emit signalRemoveParticleEffect(effect);

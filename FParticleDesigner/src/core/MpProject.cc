@@ -1,3 +1,4 @@
+#include <QtGlobal>
 #include <assert.h>
 #include "core/MpProject.h"
 #include "core/MpParticleEffect.h"
@@ -6,8 +7,8 @@
 MpProject::MpProject()
 {
 	m_curParticleEffect=NULL;
-
 }
+
 
 MpProject::~MpProject()
 {
@@ -30,11 +31,21 @@ std::string MpProject::getName()
 	return m_name;
 }
 
+
 void MpProject::setName(const char* name)
 {
 	m_name=std::string(name);
 }
 
+std::string MpProject::getDir()
+{
+	return m_dir;
+}
+
+void MpProject::setDir(const std::string& dir)
+{
+	m_dir=dir;
+}
 
 bool MpProject::hasParticleWithName(const char* name)
 {

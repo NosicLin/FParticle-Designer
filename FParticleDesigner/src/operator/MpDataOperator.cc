@@ -9,8 +9,11 @@
 void MpDataOperator::setCurProject(MpProject* proj)
 {
 	MpGlobal::setCurProject(proj);
+
 	MpGlobal::msgCenter()->emitCurProjectChange();
 	MpGlobal::msgCenter()->emitCurParticleEffectChange();
+
+	//delete proj;
 }
 
 void MpDataOperator::setCurParticleEffect(MpParticleEffect* effect)
@@ -23,6 +26,8 @@ void MpDataOperator::setCurParticleEffect(MpParticleEffect* effect)
 void MpDataOperator::addParticleEffect(MpProject* proj,MpParticleEffect* effect)
 {
 	proj->addParticleEffect(effect);
+	MpGlobal::msgCenter()->emitAddParticleEffect(effect);
+
 	proj->setCurParticleEffect(effect);
 	MpGlobal::msgCenter()->emitCurParticleEffectChange();
 }

@@ -34,7 +34,8 @@ int main(int argc, char *argv[])
 
     MpProject* proj=new MpProject;
     MpGlobal::setCurProject(proj);
-    proj->setName("Runner");
+
+    proj->setName("runner.fparticle");
 
     MpGlobal::getCurProject()->addParticleEffect(effect1);
 	MpGlobal::getCurProject()->addParticleEffect(effect2);

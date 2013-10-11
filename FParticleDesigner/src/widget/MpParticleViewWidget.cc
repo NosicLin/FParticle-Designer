@@ -129,7 +129,7 @@ void MpParticleViewWidget::mousePressEvent(QMouseEvent* event)
 
 void MpParticleViewWidget::timerUpdate()
 {
-    m_timer->start(16);
+ //   m_timer->start(16);
 
     MpParticleEffect* mp_effect=MpGlobal::getCurMpParticleEffect();
 	if(!mp_effect)

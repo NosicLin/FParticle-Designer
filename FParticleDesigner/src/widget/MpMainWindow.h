@@ -23,6 +23,7 @@ class MpMainWindow:public QMainWindow
     protected:
 		void initMenuBar();
 		void initWidget();
+		void connectSignal();
 
 
 

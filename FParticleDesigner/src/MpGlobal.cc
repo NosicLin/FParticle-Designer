@@ -1,5 +1,7 @@
+#include <QtGlobal>
 #include "MpGlobal.h"
 #include "MpMsgCenter.h"
+#include "MpConfig.h"
 #include "core/MpProject.h"
 #include "core/MpParticleEffect.h"
 #include "operator/MpAttrOperator.h"
@@ -7,6 +9,9 @@
 
 MpProject* MpGlobal::m_project=NULL;
 MpMsgCenter* MpGlobal::m_msgCenter=NULL;
+MpConfig* MpGlobal::m_config=NULL;
+
+
 
 
 MpMsgCenter* MpGlobal::msgCenter()
@@ -19,6 +24,17 @@ MpMsgCenter* MpGlobal::msgCenter()
 	return MpGlobal::m_msgCenter;
 }
 
+MpConfig* MpGlobal::getConfig()
+{
+	if(MpGlobal::m_config==NULL)
+	{
+		MpGlobal::m_config=new MpConfig;
+
+	}
+	return MpGlobal::m_config;
+}
+
+
 
 
 
@@ -29,10 +45,7 @@ MpProject* MpGlobal::getCurProject()
 
 void  MpGlobal::setCurProject(MpProject* proj)
 {
-	if(m_project)
-	{
-		delete m_project;
-	}
+	qDebug("setCur Project=%x",long(proj));
 	m_project=proj;
 }
 

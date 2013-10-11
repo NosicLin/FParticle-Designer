@@ -17,8 +17,14 @@ class MpProject :public MpIdentify
 		virtual const char* className();
 
 	public:
+		/* dir */
+		std::string getDir();
+		void setDir(const std::string& name);
+
+		/* name */
 		std::string getName();
 		void setName(const char* name);
+
 
 		bool hasParticleWithName(const char* name);
 
@@ -37,10 +43,10 @@ class MpProject :public MpIdentify
 		void setCurParticleEffect(MpParticleEffect* effect);
 
 	private:
+		MpParticleEffect* m_curParticleEffect;
 		std::vector<MpParticleEffect* > m_particleEffects;
 		std::string m_name;
-
-		MpParticleEffect* m_curParticleEffect;
+		std::string m_dir;
 };
 
 #endif /*_MP_PROJECT_H_*/

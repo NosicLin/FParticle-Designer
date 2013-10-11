@@ -75,6 +75,9 @@ void MpProjectExploreWidget::connectSignal()
 	connect(MpGlobal::msgCenter(),SIGNAL(signalRemoveParticleEffect(MpParticleEffect* )),
 			this,SLOT(slotRemoveParticleEffect(MpParticleEffect* )));
 
+
+	connect(MpGlobal::msgCenter(),SIGNAL(signalAddParticleEffect(MpParticleEffect*)),this,SLOT(slotRemoveParticleEffect(MpParticleEffect*)));
+
     connect(m_projectExploreView,SIGNAL(pressed(const QModelIndex&)),
 			this, SLOT(slotMousePress(const QModelIndex&)));
 
@@ -86,10 +89,14 @@ void MpProjectExploreWidget::connectSignal()
 	/* particle */
 	connect(ma_renameParticle,SIGNAL(triggered()),MpOperator::ui(),SLOT(renameParticle()));
 	connect(ma_deleteParticle,SIGNAL(triggered()),MpOperator::ui(),SLOT(removeParticle()));
+
+	connect(ma_exportAll,SIGNAL(triggered()),MpOperator::ui(),SLOT(exportAllParticleEffect()));
+
 }
 
 void MpProjectExploreWidget::slotCurProjectChange()
 {
+	m_projectExploreView->reset();
     m_projectExploreModel->refresh();
 }
 

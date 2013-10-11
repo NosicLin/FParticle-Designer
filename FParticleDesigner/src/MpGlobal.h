@@ -6,6 +6,7 @@ class MpAttrOperator;
 class MpProject;
 class MpParticleEffect;
 class MpMsgCenter;
+class MpConfig;
 
 #include "stage/entity/FsParticle2DEmitter.h"
 
@@ -29,9 +30,15 @@ class MpGlobal
         static Particle2DEmitter* getCurParticle2DEmitter();
 
 
+		/* config */
+		static MpConfig* getConfig();
+
 	private:
 		static MpProject* m_project;
 		static MpMsgCenter* m_msgCenter;
+		static MpConfig* m_config;
+
+
 };
 
 

@@ -4,6 +4,7 @@
 class MpAttrOperator;
 class MpDataOperator;
 class MpUiOperator;
+class MpIoOperator;
 
 class MpOperator 
 {
@@ -11,11 +12,13 @@ class MpOperator
 		static MpAttrOperator* attr();
 		static MpDataOperator* data();
 		static MpUiOperator* ui();
+		static MpIoOperator* io();
 
 	private:
 		static MpAttrOperator* m_attr;
 		static MpDataOperator* m_data;
 		static MpUiOperator* m_ui;
+		static MpIoOperator* m_io;
 
 };
 

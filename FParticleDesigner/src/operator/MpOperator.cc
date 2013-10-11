@@ -2,12 +2,14 @@
 #include "operator/MpAttrOperator.h"
 #include "operator/MpDataOperator.h"
 #include "operator/MpUiOperator.h"
+#include "operator/MpIoOperator.h"
 
 
 
 MpAttrOperator* MpOperator::m_attr=NULL;
 MpDataOperator* MpOperator::m_data=NULL;
 MpUiOperator* MpOperator::m_ui=NULL;
+MpIoOperator* MpOperator::m_io=NULL;
 
 
 MpAttrOperator* MpOperator::attr()
@@ -36,6 +38,17 @@ MpUiOperator* MpOperator::ui()
 		MpOperator::m_ui=new MpUiOperator;
 	}
 	return MpOperator::m_ui;
+}
+
+MpIoOperator* MpOperator::io()
+{
+	if(MpOperator::m_io==NULL)
+	{
+		MpOperator::m_io=new MpIoOperator;
+	}
+	return MpOperator::m_io;
+
+
 }
 
 
