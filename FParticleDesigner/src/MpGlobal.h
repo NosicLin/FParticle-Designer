@@ -9,9 +9,7 @@ class MpMsgCenter;
 class MpConfig;
 
 #include "stage/entity/FsParticle2DEmitter.h"
-
 NS_FS_USE
-
 class MpGlobal
 {
 	public:
@@ -40,10 +38,6 @@ class MpGlobal
 
 
 };
-
-
-
-
 
 #endif /*_MP_GLOBAL_H_*/
 

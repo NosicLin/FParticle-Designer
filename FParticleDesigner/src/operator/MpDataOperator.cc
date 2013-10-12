@@ -13,7 +13,12 @@ void MpDataOperator::setCurProject(MpProject* proj)
 	MpGlobal::msgCenter()->emitCurProjectChange();
 	MpGlobal::msgCenter()->emitCurParticleEffectChange();
 
-	//delete proj;
+	/* FIXME: if delete proj,MpProjectExploreWidget will crash, 
+	 * I don't know why, i have let MpProjectExploreModel emit layoutChanged signal
+	 * but if don't delete, memory will leak
+	 */
+
+	//delete proj;   
 }
 
 void MpDataOperator::setCurParticleEffect(MpParticleEffect* effect)
@@ -32,6 +37,7 @@ void MpDataOperator::addParticleEffect(MpProject* proj,MpParticleEffect* effect)
 	MpGlobal::msgCenter()->emitCurParticleEffectChange();
 }
 
+
 void MpDataOperator::removeParticleEffect(MpProject* proj,MpParticleEffect* effect)
 {
 	if(proj->getCurParticleEffect()==effect)
@@ -44,8 +50,9 @@ void MpDataOperator::removeParticleEffect(MpProject* proj,MpParticleEffect* effe
 	proj->removeParticleEffect(effect);
 	MpGlobal::msgCenter()->emitRemoveParticleEffect(effect);
 
-	//qDebug("%x",long(effect));
+	/* FIXME: it delete  effect MpProjectExploreWidget will crash */
     //delete effect;
+	
 }
 
 

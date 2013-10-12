@@ -5,6 +5,7 @@
 #include <string>
 #include "core/MpIdentify.h"
 
+
 class MpParticleEffect;
 class MpProject :public MpIdentify
 {
@@ -24,9 +25,8 @@ class MpProject :public MpIdentify
 		/* name */
 		std::string getName();
 		void setName(const char* name);
-
-
 		bool hasParticleWithName(const char* name);
+
 
 	public:
 		/* particle */
@@ -35,8 +35,8 @@ class MpProject :public MpIdentify
 
 		int getParticleEffectNu();
 		MpParticleEffect* getParticleEffect(int index);
-
 		int getParticleEffectPos(MpParticleEffect* ef);
+
 
 		/* cur particle */
 		MpParticleEffect* getCurParticleEffect();
@@ -50,4 +50,5 @@ class MpProject :public MpIdentify
 };
 
 #endif /*_MP_PROJECT_H_*/
+
 

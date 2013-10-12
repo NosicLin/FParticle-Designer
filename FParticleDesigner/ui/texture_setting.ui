@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>268</width>
-    <height>198</height>
+    <height>147</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,41 +19,31 @@
      <x>10</x>
      <y>0</y>
      <width>251</width>
-     <height>191</height>
+     <height>141</height>
     </rect>
    </property>
    <property name="title">
     <string>Texture</string>
    </property>
-   <widget class="QGraphicsView" name="graphicsView">
+   <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>80</y>
-      <width>101</width>
-      <height>91</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>110</y>
-      <width>75</width>
-      <height>23</height>
+      <width>54</width>
+      <height>12</height>
      </rect>
     </property>
     <property name="text">
-     <string>browse</string>
+     <string>image:</string>
     </property>
    </widget>
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>221</width>
+      <x>11</x>
+      <y>21</y>
+      <width>231</width>
       <height>48</height>
      </rect>
     </property>
@@ -66,7 +56,63 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QComboBox" name="comboBox"/>
+      <widget class="QComboBox" name="m_c_blendSrc">
+       <item>
+        <property name="text">
+         <string>GL_ZERO</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_ONE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_SRC_COLOR</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_ONE_MINUS_SRC_COLOR</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_DST_COLOR</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_ONE_MINUS_DST_COLOR</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_SRC_ALPHA</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_ONE_MINUS_SRC_ALPHA</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_DST_ALPHA</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_DST_MINUS_DST_ALPHA</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_SRC_ALPHA_SATURATE</string>
+        </property>
+       </item>
+      </widget>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
@@ -76,10 +122,98 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QComboBox" name="comboBox_2"/>
+      <widget class="QComboBox" name="m_c_blendDst">
+       <item>
+        <property name="text">
+         <string>GL_ZERO</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_ONE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_SRC_COLOR</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_ONE_MINUS_SRC_COLOR</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_DST_COLOR</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_ONE_MINUS_DST_COLOR</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_SRC_ALPHA</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_ONE_MINUS_SRC_ALPHA</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_DST_ALPHA</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_DST_MINUS_DST_ALPHA</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GL_SRC_ALPHA_SATURATE</string>
+        </property>
+       </item>
+      </widget>
      </item>
     </layout>
    </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>231</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLineEdit" name="m_t_imagePath">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="m_b_browse">
+       <property name="text">
+        <string>browse</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <zorder>m_b_browse</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>m_c_blendDst</zorder>
+   <zorder>m_t_imagePath</zorder>
+   <zorder>label_3</zorder>
+   <zorder>m_t_imagePath</zorder>
   </widget>
  </widget>
  <resources/>

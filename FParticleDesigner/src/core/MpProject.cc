@@ -37,10 +37,12 @@ void MpProject::setName(const char* name)
 	m_name=std::string(name);
 }
 
+
 std::string MpProject::getDir()
 {
 	return m_dir;
 }
+
 
 void MpProject::setDir(const std::string& dir)
 {

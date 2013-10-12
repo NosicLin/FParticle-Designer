@@ -29,6 +29,13 @@ class MpParticleEffect: public MpIdentify
 		void setName(const char* name);
 		std::string getName();
 
+		void setTexturePath(const char* name);
+		std::string getTexturePath();
+
+		void setTextureEmbed(bool embed);
+		bool getTextureEmbed();
+
+
         Particle2DEmitter* getParticleEmitter();
         Particle2DEffect* getParticleEffect();
 
@@ -42,14 +49,14 @@ class MpParticleEffect: public MpIdentify
 
 
 	private:
-
 		std::string m_name;
         Particle2DEmitter* m_emitter;
         Particle2DEffect* m_particleEffect;
 
 		MpProject* m_project;
 
-
+		bool m_textureEmbed;
+		std::string m_texturePath;
 };
 #endif /*_MP_PARTICLE_EFFECT_H_*/
 
