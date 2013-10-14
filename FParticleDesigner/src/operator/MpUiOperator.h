@@ -16,9 +16,13 @@ class MpUiOperator:public QObject
 		void removeParticle();
 
 		/* project */
+		void newProject();
 		void loadProject();
 		void saveProject();
 		void closeProject();
+
+		/* texture */
+		void setTexture();
 };
 
 

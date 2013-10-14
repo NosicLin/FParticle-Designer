@@ -79,7 +79,7 @@ void MpParticleSettingWidget::connectSignal()
     connect(m_ui->m_es_greenVar,SIGNAL(valueChanged(int)),attr,SLOT(onSetStartColorGreenVar(int)));
 
     connect(m_ui->m_es_redValue,SIGNAL(valueChanged(int)),attr,SLOT(onSetStartColorRed(int)));
-    connect(m_ui->m_es_redValue,SIGNAL(valueChanged(int)),attr,SLOT(onSetStartColorRedVar(int)));
+    connect(m_ui->m_es_redVar,SIGNAL(valueChanged(int)),attr,SLOT(onSetStartColorRedVar(int)));
 
 
 	/* end color */
@@ -94,7 +94,7 @@ void MpParticleSettingWidget::connectSignal()
     connect(m_ui->m_ee_greenVar,SIGNAL(valueChanged(int)),attr,SLOT(onSetEndColorGreenVar(int)));
 
     connect(m_ui->m_ee_redValue,SIGNAL(valueChanged(int)),attr,SLOT(onSetEndColorRed(int)));
-    connect(m_ui->m_ee_redValue,SIGNAL(valueChanged(int)),attr,SLOT(onSetEndColorRedVar(int)));
+    connect(m_ui->m_ee_redVar,SIGNAL(valueChanged(int)),attr,SLOT(onSetEndColorRedVar(int)));
 
 
 

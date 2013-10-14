@@ -120,6 +120,8 @@ void MpMainWindow::connectSignal()
 	connect(ma_exportParticle,SIGNAL(triggered()),MpOperator::ui(),SLOT(exportParticleEffect()));
 
 	connect(ma_exportAll,SIGNAL(triggered()),MpOperator::ui(),SLOT(exportAllParticleEffect()));
+
+	connect(ma_newProject,SIGNAL(triggered()),MpOperator::ui(),SLOT(newProject()));
 }
 
 

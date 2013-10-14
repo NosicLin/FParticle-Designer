@@ -10,6 +10,8 @@
 
 
 #include "core/MpProject.h"
+#include "operator/MpDataOperator.h"
+#include "operator/MpOperator.h"
 
 #include "MpMsgCenter.h"
 #include "MpGlobal.h"
@@ -19,33 +21,12 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-
-
-
-
     MpMainWindow win;
 
     /* show window */
     win.showMaximized();
     win.show();
-
-	MpParticleEffect* effect1=createMpParticleEffect("file.fpl");
-	MpParticleEffect* effect2=createMpParticleEffect("ballfire.fpl");
-
-    MpProject* proj=new MpProject;
-    MpGlobal::setCurProject(proj);
-
-    proj->setName("runner.fparticle");
-
-    MpGlobal::getCurProject()->addParticleEffect(effect1);
-	MpGlobal::getCurProject()->addParticleEffect(effect2);
-
-    MpGlobal::getCurProject()->setCurParticleEffect(effect1);
-
-    effect1->getParticleEffect()->start();
-	effect2->getParticleEffect()->start();
-
-	MpGlobal::msgCenter()->emitCurParticleEffectChange();
+    MpOperator::data()->setCurProject(NULL);
 
     return a.exec();
 }

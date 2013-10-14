@@ -1,6 +1,10 @@
 #include "MpGlobal.h"
 #include "operator/MpAttrOperator.h"
 #include "graphics/FsTexture2D.h"
+#include "stage/entity/FsParticle2DEffect.h"
+#include "core/MpParticleEffect.h"
+
+
 
 
 MpAttrOperator::MpAttrOperator()
@@ -9,6 +13,14 @@ MpAttrOperator::MpAttrOperator()
 
 void MpAttrOperator::onSetDurationTime(double value)
 {
+	MpParticleEffect* meffect=MpGlobal::getCurMpParticleEffect();
+	if(meffect)
+	{
+		Particle2DEffect* e=meffect->getParticleEffect();
+		e->refresh();
+	}
+
+
     Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter) 
 	{
@@ -18,6 +30,12 @@ void MpAttrOperator::onSetDurationTime(double value)
 
 void MpAttrOperator::onSetDurationTimeVar(double value)
 {
+	MpParticleEffect* meffect=MpGlobal::getCurMpParticleEffect();
+	if(meffect)
+	{
+		Particle2DEffect* e=meffect->getParticleEffect();
+		e->refresh();
+	}
     Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter) 
 	{
@@ -27,6 +45,13 @@ void MpAttrOperator::onSetDurationTimeVar(double value)
 
 void MpAttrOperator::onSetMaxParticleNu(int num)
 {
+	MpParticleEffect* meffect=MpGlobal::getCurMpParticleEffect();
+	if(meffect)
+	{
+		Particle2DEffect* e=meffect->getParticleEffect();
+		e->refresh();
+	}
+
     Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter) 
 	{
@@ -36,6 +61,12 @@ void MpAttrOperator::onSetMaxParticleNu(int num)
 
 void MpAttrOperator::onSetEmitterSpeed(int num)
 {
+	MpParticleEffect* meffect=MpGlobal::getCurMpParticleEffect();
+	if(meffect)
+	{
+		Particle2DEffect* e=meffect->getParticleEffect();
+		e->refresh();
+	}
     Particle2DEmitter* emitter=MpGlobal::getCurParticle2DEmitter();
 	if(emitter) 
 	{

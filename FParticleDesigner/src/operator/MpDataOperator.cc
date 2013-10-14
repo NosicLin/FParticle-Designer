@@ -5,11 +5,24 @@
 #include "core/MpProject.h"
 #include "core/MpParticleEffect.h"
 
+#include "sys/io/FsVFS.h"
+#include "mgr/FsTextureMgr.h"
+#include "FsGlobal.h"
+#include "stage/entity/FsParticle2DEffect.h"
+
 
 void MpDataOperator::setCurProject(MpProject* proj)
 {
-	MpGlobal::setCurProject(proj);
+	if(proj)
+	{
 
+		std::string path=proj->getDir()+"/";
+		VFS::setRoot(path.c_str());
+		TextureMgr* mgr=TextureMgr::create();
+		Global::setTextureMgr(mgr);
+	}
+
+	MpGlobal::setCurProject(proj);
 	MpGlobal::msgCenter()->emitCurProjectChange();
 	MpGlobal::msgCenter()->emitCurParticleEffectChange();
 
@@ -23,6 +36,7 @@ void MpDataOperator::setCurProject(MpProject* proj)
 
 void MpDataOperator::setCurParticleEffect(MpParticleEffect* effect)
 {
+    effect->getParticleEffect()->start(true);
 	MpGlobal::setCurMpParticleEffect(effect);
 	MpGlobal::msgCenter()->emitCurParticleEffectChange();
 }
@@ -51,8 +65,8 @@ void MpDataOperator::removeParticleEffect(MpProject* proj,MpParticleEffect* effe
 	MpGlobal::msgCenter()->emitRemoveParticleEffect(effect);
 
 	/* FIXME: it delete  effect MpProjectExploreWidget will crash */
-    //delete effect;
-	
+	//delete effect;
+
 }
 
 

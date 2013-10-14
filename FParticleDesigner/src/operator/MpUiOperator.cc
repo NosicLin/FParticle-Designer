@@ -1,3 +1,4 @@
+#include <QtGlobal>
 #include <string>
 #include <QFileDialog>
 #include <QDialog>
@@ -9,6 +10,8 @@
 #include "operator/MpDataOperator.h"
 #include "operator/MpIoOperator.h"
 #include "util/MpPathUtil.h"
+#include "util/MpPathUtil.h"
+
 
 #include "widget/SdInputDialog.h"
 #include "MpGlobal.h"
@@ -16,6 +19,13 @@
 #include "core/MpParticleEffect.h"
 #include "core/MpProject.h"
 
+#include "FsGlobal.h"
+#include "graphics/FsTexture2D.h"
+#include "stage/entity/FsParticle2DEmitter.h"
+
+
+
+NS_FS_USE
 
 
 
@@ -139,8 +149,7 @@ void MpUiOperator::saveProject()
 	MpProject* proj=MpGlobal::getCurProject();
 	std::string dir=proj->getDir();
 	std::string name=proj->getName();
-	//	std::string path=dir+"/"+name;
-	std::string path=name;
+	std::string path=dir+"/"+name;
 
 	qDebug("Begin Save Project %s",name.c_str());
 	if(!MpOperator::io()->saveProject(path.c_str(),proj))
@@ -152,7 +161,7 @@ void MpUiOperator::saveProject()
 
 void MpUiOperator::loadProject()
 {
-	QString path=QFileDialog::getOpenFileName(NULL,tr("Open Image"),".",tr("FParticle File(*.fparticle)"));
+	QString path=QFileDialog::getOpenFileName(NULL,tr("Open Project"),".",tr("FParticle File(*.fparticle)"));
 	if(path.length()==NULL)
 	{
 		return ;
@@ -166,7 +175,10 @@ void MpUiOperator::loadProject()
 	}
 	else 
 	{
-		proj->setName(path.toStdString().c_str());
+		std::string dir_name=MpPathUtil::dirName(path.toStdString().c_str());
+		std::string file_name=MpPathUtil::baseName(path.toStdString().c_str());
+		proj->setDir(dir_name.c_str());
+		proj->setName(file_name.c_str());
 		MpOperator::data()->setCurProject(proj);
 	}
 }
@@ -174,10 +186,14 @@ void MpUiOperator::loadProject()
 
 void MpUiOperator::closeProject()
 {
-	QMessageBox msg(QMessageBox::Warning,"Close Project","Are You Sure To Close Project",QMessageBox::Ok|QMessageBox::Cancel);
-	if(msg.exec()==QMessageBox::Ok)
+	MpProject* proj=MpGlobal::getCurProject();
+	if(proj)
 	{
-		MpOperator::data()->setCurProject(NULL);
+		QMessageBox msg(QMessageBox::Warning,"Close Project","Are You Sure To Close Project",QMessageBox::Ok|QMessageBox::Cancel);
+		if(msg.exec()==QMessageBox::Ok)
+		{
+			MpOperator::data()->setCurProject(NULL);
+		}
 	}
 }
 
@@ -211,6 +227,83 @@ void MpUiOperator::exportParticleEffect()
 		msg.exec();
 	}
 }
+
+void MpUiOperator::setTexture()
+{
+	MpProject*  proj=MpGlobal::getCurProject();
+	MpParticleEffect* effect=MpGlobal::getCurMpParticleEffect();
+	if(effect==NULL)
+	{
+		return ;
+
+	}
+
+
+
+	std::string proj_path=proj->getDir();
+	QString path=QFileDialog::getOpenFileName(NULL,tr("Open Image"),proj_path.c_str(),tr("image(*.png)"));
+
+	/*
+	   qDebug("proj_path=%s",proj_path.c_str());
+	   qDebug("load_path=%s",path.toStdString().c_str());
+	   */
+
+
+	if(path.length()==NULL)
+	{
+		return ;
+	}
+
+
+
+
+	std::string t_path=path.toStdString();
+	std::string relative_path=MpPathUtil::removePrePath(t_path,proj_path);
+	//qDebug("relative_path=%s",relative_path.c_str());
+
+	Texture2D* texture=Global::textureMgr()->loadTexture(relative_path.c_str());
+	if(texture==NULL)
+	{
+		qDebug("load Texture Failed");
+	}
+
+	Particle2DEmitter* emitter=effect->getParticleEmitter();
+
+	emitter->setTexture(texture);
+	effect->setTexturePath(relative_path.c_str());
+}
+
+
+void MpUiOperator::newProject()
+{
+	QString path=QFileDialog::getSaveFileName(NULL,tr("New Project"),".",tr("Particle Designer(*.fparticle)"));
+
+
+	std::string t_path=path.toStdString();
+	std::string t_path_dir=MpPathUtil::dirName(t_path.c_str());
+	std::string t_path_name=MpPathUtil::baseName(t_path.c_str());
+
+	/*
+	   qDebug("t_path=%s",t_path.c_str());
+	   qDebug("t_path_dir=%s",t_path_dir.c_str());
+	   qDebug("t_path_name=%s",t_path_name.c_str());
+	   */
+
+
+	MpProject* proj=new MpProject();
+	proj->setDir(t_path_dir.c_str());
+	proj->setName(t_path_name.c_str());
+	MpOperator::data()->setCurProject(proj);
+
+
+}
+
+
+
+
+
+
+
 
 
 

@@ -28,7 +28,6 @@ class MpIoOperator
 		bool exportParticleEffect(FsFile* file,MpParticleEffect* effect);
 
 
-
 	protected:
 		void saveParticleEffect(const char* prefix,FsFile* file,MpParticleEffect* effect);
 };

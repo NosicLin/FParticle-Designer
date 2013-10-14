@@ -111,19 +111,25 @@ bool MpParticleEffect::init(FsDict* dict)
 	FsString* s_url=ScriptUtil::getString(d_texture,"url");
 	if(s_url==NULL)
 	{
-		d_texture->decRef();
-		emitter->decRef();
-		return NULL;
+		//d_texture->decRef();
+		//emitter->decRef();
+		//return NULL;
 	}
 
 	bool embed;
 	ScriptUtil::getBoolean(d_texture,"embed",&embed);
 
-    setTexturePath(s_url->cstr());
+	if(s_url)
+	{
+		setTexturePath(s_url->cstr());
+	}
 	setTextureEmbed(embed);
 
 	d_texture->decRef();
-    s_url->decRef();
+
+	FS_SAFE_DEC_REF(s_url);
+
+  //  s_url->decRef();
 
 	m_particleEffect=Particle2DEffect::create(emitter);
 	m_emitter=emitter;

@@ -21,13 +21,13 @@ class MpAttrOperator :public QObject
 		void onSetMaxParticleNu(int num);
 		void onSetEmitterSpeed(int num);
 
-
 		void onSetLifeTime(double value);
 		void onSetLifeTimeVar(double value);
 		void onSetStartSize(double value);
 		void onSetStartSizeVar(double value);
 		void onSetEndSize(double value);
 		void onSetEndSizeVar(double value);
+
 		/* start color */
 		void onSetStartColorRed(int value);
 		void onSetStartColorRedVar(int value);

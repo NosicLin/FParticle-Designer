@@ -16,6 +16,7 @@
 class MpMainWindow:public QMainWindow 
 {
 	Q_OBJECT
+
 	public:
 		MpMainWindow();
 		~MpMainWindow();
@@ -24,7 +25,6 @@ class MpMainWindow:public QMainWindow
 		void initMenuBar();
 		void initWidget();
 		void connectSignal();
-
 
 
 	private: /* widget */
@@ -80,11 +80,7 @@ class MpMainWindow:public QMainWindow
 		QMenu*  mn_about;
 		QAction* ma_aboutThis;
 		QAction* ma_onlineTutorial;
-
 };
-
-
-
-
 #endif /*_MP_MAIN_WIDGET_H_*/
+
 

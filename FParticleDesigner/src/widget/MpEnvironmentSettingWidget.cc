@@ -29,6 +29,9 @@ void MpEnvironmentSettingWidget::connectSignal()
     MpAttrOperator* attr=MpOperator::attr();
 
 	/* gravity */
+	connect(m_ui->m_eg_speedValue,SIGNAL(valueChanged(double)),attr,SLOT(onSetSpeed(double)));
+	connect(m_ui->m_eg_speedVar,SIGNAL(valueChanged(double)),attr,SLOT(onSetSpeedVar(double)));
+
 	connect(m_ui->m_eg_gravityXValue,SIGNAL(valueChanged(double)),attr,SLOT(onSetGravityX(double)));
 	connect(m_ui->m_eg_gravityYValue,SIGNAL(valueChanged(double)),attr,SLOT(onSetGravityY(double)));
 	connect(m_ui->m_eg_radialAccelValue,SIGNAL(valueChanged(double)),attr,SLOT(onSetRadialAcceleration(double)));

@@ -29,14 +29,17 @@ void MpEmitterSettingWidget::connectSignal()
 {
     MpAttrOperator* attr=MpOperator::attr();
 
-	connect(m_ui->m_e_emitSpeed,SIGNAL(valueChanged(int)),
-			attr,SLOT(onSetEmitterSpeed(int )));
-	connect(m_ui->m_e_lifeTimeMax,SIGNAL(valueChanged(double)),
-			attr,SLOT(onSetDurationTime(double)));
 	connect(m_ui->m_e_lifeTimeVar,SIGNAL(valueChanged(double)),
 			attr,SLOT(onSetDurationTimeVar(double)));
+
+	connect(m_ui->m_e_lifeTimeMax,SIGNAL(valueChanged(double)),
+			attr,SLOT(onSetDurationTime(double)));
+
 	connect(m_ui->m_e_maxParticle,SIGNAL(valueChanged(int)),
             attr,SLOT(onSetMaxParticleNu(int)));
+
+	connect(m_ui->m_e_emitSpeed,SIGNAL(valueChanged(int)),
+			attr,SLOT(onSetEmitterSpeed(int )));
 
 
 	connect(MpGlobal::msgCenter(),SIGNAL(signalCurParticleEffectChange()),this,SLOT(onCurParticleEffectChange()));

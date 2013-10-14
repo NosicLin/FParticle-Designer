@@ -114,6 +114,7 @@ MpProject* MpIoOperator::loadProject(FsFile* file)
 
 bool MpIoOperator::saveProject(const char* filename,MpProject* proj)
 {
+    qDebug("Save Project=%s",filename);
     FsFile* file=SysFile::open(filename,FsFile::FS_IO_WRONLY|FsFile::FS_IO_TRUNC|FsFile::FS_IO_CREATE);
 	if(file==NULL)
 	{
@@ -175,8 +176,8 @@ void MpIoOperator::saveParticleEffect(const char* prefix,FsFile* file,MpParticle
 
 	/* emitter */
 	file->writeStr("%semitter:{\n",pre_tab4);
-	file->writeStr("%sdurationTime:%d\n",pre_tab5,emitter->getDurationTime());
-	file->writeStr("%sdurationTimeVar:%d\n",pre_tab5,emitter->getDurationTimeVar());
+	file->writeStr("%sdurationTime:%f\n",pre_tab5,emitter->getDurationTime());
+	file->writeStr("%sdurationTimeVar:%f\n",pre_tab5,emitter->getDurationTimeVar());
 	file->writeStr("%semitSpeed:%d\n",pre_tab5,emitter->getEmitSpeed());
 	file->writeStr("%smaxParticleNu:%d\n",pre_tab5,emitter->getMaxParticleNu());
 	file->writeStr("%s}\n",pre_tab4);
@@ -198,10 +199,10 @@ void MpIoOperator::saveParticleEffect(const char* prefix,FsFile* file,MpParticle
 	Color ecolor_var=emitter->getEndColorVar();
 
 
-	file->writeStr("%sstartColor:[%d,%d,%d,%d]\n",pre_tab5,scolor.r,scolor.g,scolor.b,scolor.a);
-	file->writeStr("%sstartColorVar:[%d,%d,%d,%d]\n",pre_tab5,scolor_var.r,scolor_var.g,scolor_var.b,scolor_var.a);
-	file->writeStr("%sendColor:[%d,%d,%d,%d]\n",pre_tab5,ecolor.r,ecolor.g,ecolor.b,ecolor.a);
-	file->writeStr("%sendColorVar:[%d,%d,%d,%d]\n",pre_tab5,ecolor_var.r,ecolor_var.g,ecolor_var.b,ecolor_var.a);
+	file->writeStr("%sstartColor:[%d,%d,%d,%d]\n",   pre_tab5, scolor.r,     scolor.g,     scolor.b,     scolor.a);
+	file->writeStr("%sstartColorVar:[%d,%d,%d,%d]\n",pre_tab5, scolor_var.r, scolor_var.g, scolor_var.b, scolor_var.a);
+	file->writeStr("%sendColor:[%d,%d,%d,%d]\n",     pre_tab5, ecolor.r,     ecolor.g,     ecolor.b,     ecolor.a);
+	file->writeStr("%sendColorVar:[%d,%d,%d,%d]\n",  pre_tab5, ecolor_var.r, ecolor_var.g, ecolor_var.b, ecolor_var.a);
 	file->writeStr("%sangle:%f\n",pre_tab5,emitter->getAngle());
 	file->writeStr("%sangleVar:%f\n",pre_tab5,emitter->getAngleVar());
 
@@ -230,6 +231,12 @@ void MpIoOperator::saveParticleEffect(const char* prefix,FsFile* file,MpParticle
 
 	/* texture */
 	file->writeStr("%stexture:{\n",pre_tab4);
+
+	if(effect->getTexturePath().size()!=0)
+	{
+		file->writeStr("%surl:\"%s\"\n",pre_tab5,effect->getTexturePath().c_str());
+	}
+
 	/* TODO: blendSrc,blendDst,url */
 	file->writeStr("%s}\n",pre_tab4);
 
@@ -255,7 +262,7 @@ void MpIoOperator::saveParticleEffect(const char* prefix,FsFile* file,MpParticle
 
 	Vector2 g=emitter->getGravity();
 
-	file->writeStr("%sgravity:[%d,%d]\n",pre_tab6,g.x,g.y);
+	file->writeStr("%sgravity:[%f,%f]\n",pre_tab6,g.x,g.y);
 	file->writeStr("%sradialAcceleration:%f\n",pre_tab6,emitter->getRadialAcceleration());
 	file->writeStr("%sradialAccelerationVar:%f\n",pre_tab6,emitter->getRadialAccelerationVar());
 	file->writeStr("%stangentialAcceleration:%f\n",pre_tab6,emitter->getTangentialAcceleration());

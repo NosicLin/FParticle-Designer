@@ -6,9 +6,16 @@
 
 class MpTextureSettingWidget:public QWidget 
 {
+	Q_OBJECT
 	public:
 		MpTextureSettingWidget();
 		~MpTextureSettingWidget();
+
+	public slots:
+		void slotOnSetTexture();
+		void slotCurParticleEffectChange();
+		void slotCurProjectChange();
+
 
 	protected:
 		void init();
