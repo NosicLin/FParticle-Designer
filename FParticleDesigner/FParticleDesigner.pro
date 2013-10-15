@@ -48,7 +48,8 @@ SOURCES += \
     src/operator/MpUiOperator.cc \
     src/operator/MpIoOperator.cc \
     src/MpConfig.cc \
-    src/util/MpPathUtil.cc
+    src/util/MpPathUtil.cc \
+    src/util/SdRenderUtil.cc
 
 HEADERS  += \
     src/widget/MpPropertyWidget.h \
@@ -72,7 +73,9 @@ HEADERS  += \
     src/widget/SdInputDialog.h \
     src/operator/MpIoOperator.h \
     src/MpConfig.h \
-    src/util/MpPathUtil.h
+    src/util/MpPathUtil.h \
+    src/util/SdRenderUtil.h \
+    src/util/SdUtil.h
 
 FORMS    += \
     ui/emiter_setting.ui \

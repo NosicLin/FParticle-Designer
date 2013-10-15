@@ -1,3 +1,4 @@
+#include <QtGlobal>
 #include "widget/MpEnvironmentSettingWidget.h"
 #include "MpGlobal.h"
 #include "operator/MpAttrOperator.h"
@@ -54,6 +55,9 @@ void MpEnvironmentSettingWidget::connectSignal()
 
     connect(m_ui->m_modeSelect,SIGNAL(currentIndexChanged(int)),this,SLOT(slotSelectModeChange(int)));
 	connect(MpGlobal::msgCenter(),SIGNAL(signalCurParticleEffectChange()),this,SLOT(slotCurParticleEffectChange()));
+
+	connect(m_ui->m_moveSelect,SIGNAL(currentIndexChanged(int)),this,SLOT(slotMoveModeChange(int)));
+
 }
 
 
@@ -99,6 +103,16 @@ void MpEnvironmentSettingWidget::slotCurParticleEffectChange()
         {
             setEvnMode(MP_MODEL_RADIUS);
         }
+
+		if(emiter->getMoveMode()==Particle2DEmitter::MOVE_FREE)
+		{
+			setMoveMode(MP_MOVE_MODE_FREE);
+		}
+		else 
+		{
+            setMoveMode(MP_MOVE_MODE_GROUP);
+		}
+
 	}
 	else 
 	{
@@ -126,6 +140,21 @@ void MpEnvironmentSettingWidget::setEvnMode(int mode)
 }
 
 
+void MpEnvironmentSettingWidget::setMoveMode(int mode)
+{
+	if(mode==MP_MOVE_MODE_FREE)
+	{
+		m_ui->m_moveSelect->setCurrentIndex(0);
+		MpOperator::attr()->onSetMoveMode(Particle2DEmitter::MOVE_FREE);
+	}
+	else 
+	{
+        m_ui->m_moveSelect->setCurrentIndex(1);
+		MpOperator::attr()->onSetMoveMode(Particle2DEmitter::MOVE_GROUP);
+	}
+}
+
+
 void MpEnvironmentSettingWidget::slotSelectModeChange(int index)
 {
 	if(index==MP_MODEL_GRAVITY)
@@ -138,8 +167,21 @@ void MpEnvironmentSettingWidget::slotSelectModeChange(int index)
 		m_ui->m_stackWidget->setCurrentIndex(1);
         MpOperator::attr()->onSetEnvMode(Particle2DEmitter::ENV_RADIAL);
 	}
+}
 
+void MpEnvironmentSettingWidget::slotMoveModeChange(int index)
+{
+	qDebug("Move Mode Change=%d",index);
 
+	if(index==MP_MOVE_MODE_FREE)
+	{
+
+		MpOperator::attr()->onSetMoveMode(Particle2DEmitter::MOVE_FREE);
+	}
+	else 
+	{
+		MpOperator::attr()->onSetMoveMode(Particle2DEmitter::MOVE_GROUP);
+	}
 }
 
 

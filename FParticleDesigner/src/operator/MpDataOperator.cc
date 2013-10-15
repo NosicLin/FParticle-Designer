@@ -17,7 +17,6 @@ void MpDataOperator::setCurProject(MpProject* proj)
 	{
 
 		std::string path=proj->getDir()+"/";
-		VFS::setRoot(path.c_str());
 		TextureMgr* mgr=TextureMgr::create();
 		Global::setTextureMgr(mgr);
 	}

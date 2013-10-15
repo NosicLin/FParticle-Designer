@@ -11,7 +11,44 @@
 #include "support/util/FsArray.h"
 #include "support/util/FsString.h"
 
+#include "graphics/FsRender.h"
+
+
+
 NS_FS_USE
+const char* S_BlendFactorToStr(int factor)
+{
+	switch(factor)
+	{
+		case Render::FACTOR_ZERO:
+			return "Zero";
+		case Render::FACTOR_ONE:
+			return "One";
+		case Render::FACTOR_SRC_COLOR:
+			return "SrcColor";
+		case Render::FACTOR_ONE_MINUS_SRC_COLOR:
+			return "OneMinusSrcColor";
+		case Render::FACTOR_DST_COLOR:
+			return "DstColor";
+		case Render::FACTOR_ONE_MINUS_DST_COLOR:
+			return "OneMinusDstColor";
+		case Render::FACTOR_SRC_ALPHA:
+			return "SrcAlpha";
+		case Render::FACTOR_ONE_MINUS_SRC_ALPHA:
+			return "OneMinusSrcAlpha";
+		case Render::FACTOR_DST_ALPHA:
+			return "DstAlpha";
+		case Render::FACTOR_ONE_MINUS_DST_ALPHA:
+			return "OneMinusDstAlpha";
+		case Render::FACTOR_SRC_ALPHA_SATURATE:
+			return "SrcAlphaSaturate";
+	}
+	assert(0);
+}
+
+
+
+
 MpIoOperator::MpIoOperator()
 {
 }
@@ -237,6 +274,10 @@ void MpIoOperator::saveParticleEffect(const char* prefix,FsFile* file,MpParticle
 		file->writeStr("%surl:\"%s\"\n",pre_tab5,effect->getTexturePath().c_str());
 	}
 
+	file->writeStr("%sblendSrc:\"%s\"\n",pre_tab5,S_BlendFactorToStr(emitter->getBlendSrc()));
+	file->writeStr("%sblendDst:\"%s\"\n",pre_tab5,S_BlendFactorToStr(emitter->getBlendDst()));
+
+
 	/* TODO: blendSrc,blendDst,url */
 	file->writeStr("%s}\n",pre_tab4);
 
@@ -254,6 +295,8 @@ void MpIoOperator::saveParticleEffect(const char* prefix,FsFile* file,MpParticle
 			file->writeStr("%smode:\"radius\"\n",pre_tab5);
 			break;
 	}
+
+
 
 	/* gravity */
 	file->writeStr("%sgravity:{\n",pre_tab5);

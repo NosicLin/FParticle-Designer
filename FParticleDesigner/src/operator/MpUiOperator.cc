@@ -22,6 +22,7 @@
 #include "FsGlobal.h"
 #include "graphics/FsTexture2D.h"
 #include "stage/entity/FsParticle2DEmitter.h"
+#include "sys/io/FsVFS.h"
 
 
 
@@ -167,7 +168,13 @@ void MpUiOperator::loadProject()
 		return ;
 	}
 
+	std::string dir_name=MpPathUtil::dirName(path.toStdString().c_str());
+	std::string file_name=MpPathUtil::baseName(path.toStdString().c_str());
+	std::string vfs_root=dir_name+"/";
+	VFS::setRoot(vfs_root.c_str());
+
 	MpProject* proj=MpOperator::io()->loadProject(path.toStdString().c_str());
+
 	if(proj==NULL)
 	{
 		QMessageBox msg(QMessageBox::Warning,"Open Project","Can't Open Project");
@@ -175,8 +182,6 @@ void MpUiOperator::loadProject()
 	}
 	else 
 	{
-		std::string dir_name=MpPathUtil::dirName(path.toStdString().c_str());
-		std::string file_name=MpPathUtil::baseName(path.toStdString().c_str());
 		proj->setDir(dir_name.c_str());
 		proj->setName(file_name.c_str());
 		MpOperator::data()->setCurProject(proj);
@@ -288,6 +293,9 @@ void MpUiOperator::newProject()
 	   qDebug("t_path_dir=%s",t_path_dir.c_str());
 	   qDebug("t_path_name=%s",t_path_name.c_str());
 	   */
+
+	std::string vfs_root=t_path_dir+"/";
+	VFS::setRoot(vfs_root.c_str());
 
 
 	MpProject* proj=new MpProject();

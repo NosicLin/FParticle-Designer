@@ -9,6 +9,7 @@
 #include "MpGlobal.h"
 
 #include "core/MpProject.h"
+#include "util/SdRenderUtil.h"
 
 #include "MpMsgCenter.h"
 #include "MpGlobal.h"
@@ -61,7 +62,11 @@ void MpParticleViewWidget::resizeGL(int width,int height)
 	Matrix4 mat;
     mat.makeOrthographic(-width/2,width/2,-height/2,height/2,-100,100);
     Global::render()->setProjectionMatrix(&mat);
-	Global::render()->setViewport(0,0,width,height);
+    Global::render()->setViewport(0,0,width,height);
+
+    /* for fix function pipeline */
+    SdRenderUtil::setProjectionMatrix(&mat);
+
 }
 
 void MpParticleViewWidget::paintGL()
@@ -73,10 +78,57 @@ void MpParticleViewWidget::paintGL()
     MpParticleEffect* mp_effect=MpGlobal::getCurMpParticleEffect();
 	if(!mp_effect)
 	{
-		return ;
+        renderText(20,20,"Particle: No Active");
+        return ;
+    }
+
+
+    Particle2DEffect* effect=mp_effect->getParticleEffect();
+
+	float vx=effect->getPositionX();
+	float vy=effect->getPositionY();
+
+	QSize s=size();
+
+    Vector2 minpos=toEditCoord(Vector2(0,s.height()));
+    Vector2 maxpos=toEditCoord(Vector2(s.width(),0));
+
+    qDebug("pos=%f,%f",vx,vy);
+
+
+    qDebug("minpos=%f,%f",minpos.x,minpos.y);
+    qDebug("maxpos=%f,%f",maxpos.x,maxpos.y);
+
+    minpos=minpos+Vector2(vx,vy);
+    maxpos=maxpos+Vector2(vx,vy);
+
+    qDebug("minpos=%f,%f",minpos.x,minpos.y);
+    qDebug("maxpos=%f,%f",maxpos.x,maxpos.y);
+
+
+
+    SdRenderUtil::drawLine(Vector2(-1000000,vy),Vector2(1000000,vy),1,Color::RED);
+    SdRenderUtil::drawLine(Vector2(vx,-1000000),Vector2(vx,100000),1,Color::BLUE);
+
+    effect->draw(Global::render(),true);
+
+    SdRenderUtil::drawLine(Vector2(vx,vy),Vector2(vx,vy),1,Color::WHITE);
+
+    renderText(20,20,QString("").sprintf("Particle:%s",mp_effect->getName().c_str()));
+	float life_time,elapse_time;
+
+	life_time=effect->getLifeTime();
+	elapse_time=effect->getElapseTime();
+
+    renderText(20,40,QString("").sprintf("LifeTime:%.2f/%.2f (%.2f)",elapse_time,life_time,elapse_time/life_time));
+	renderText(20,60,QString("").sprintf("CurrentParticle:%d",effect->getParticleNu()));
+	renderText(20,80,QString("").sprintf("MaxParticle:%d",effect->getMaxParticleNu()));
+
+	if(effect->isStop())
+	{
+		effect->start();
 	}
-	Particle2DEffect* effect=mp_effect->getParticleEffect();
-	effect->draw(Global::render(),true);
+
 }
 
 
@@ -126,6 +178,21 @@ void MpParticleViewWidget::mousePressEvent(QMouseEvent* event)
 
 
 }
+
+void MpParticleViewWidget::mouseMoveEvent(QMouseEvent* event)
+{
+    Vector2 pos=toEditCoord(Vector2(event->x(),event->y()));
+
+    MpParticleEffect* mp_effect=MpGlobal::getCurMpParticleEffect();
+    if(!mp_effect)
+    {
+        return ;
+    }
+    Particle2DEffect* effect=mp_effect->getParticleEffect();
+    effect->setPosition(pos.x,pos.y,0);
+    update();
+}
+
 
 void MpParticleViewWidget::timerUpdate()
 {
