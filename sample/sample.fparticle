@@ -6,8 +6,8 @@ project:{
 			name:"snow"
 			attr:{
 				emitter:{
-					durationTime:0.000000
-					durationTimeVar:10000.000000
+					durationTime:1000.000000
+					durationTimeVar:0.000000
 					emitSpeed:20
 					maxParticleNu:1000
 				}
@@ -30,10 +30,12 @@ project:{
 					endRotationVar:60.000000
 					position:[-800.000000,0.000000]
 					positionVar:[800.000000,0.000000]
-					moveMode:"grounp"
+					moveMode:"group"
 				}
 				texture:{
 					url:"White snow.png"
+					blendSrc:"SrcAlpha"
+					blendDst:"OneMinusSrcAlpha"
 				}
 				environment:{
 					mode:"gravity"
@@ -61,8 +63,8 @@ project:{
 			name:"fire"
 			attr:{
 				emitter:{
-					durationTime:0.000000
-					durationTimeVar:10000.000000
+					durationTime:1000.000000
+					durationTimeVar:0.000000
 					emitSpeed:100
 					maxParticleNu:100000
 				}
@@ -85,10 +87,12 @@ project:{
 					endRotationVar:0.000000
 					position:[-20.000000,-10.000000]
 					positionVar:[40.000000,20.000000]
-					moveMode:"grounp"
+					moveMode:"free"
 				}
 				texture:{
 					url:"fire.png"
+					blendSrc:"SrcAlpha"
+					blendDst:"One"
 				}
 				environment:{
 					mode:"gravity"
@@ -102,11 +106,11 @@ project:{
 						tangentialAccelerationVar:0.000000
 					}
 					radial:{
-						startRadius:0.000000
+						startRadius:150.000000
 						startRadiusVar:0.000000
 						endRadius:0.000000
 						endRadiusVar:0.000000
-						rotateSpeed:0.000000
+						rotateSpeed:20.000000
 						rotateSpeedVar:0.000000
 					}
 				}
@@ -116,8 +120,8 @@ project:{
 			name:"firwork"
 			attr:{
 				emitter:{
-					durationTime:0.000000
-					durationTimeVar:1000.000000
+					durationTime:1.500000
+					durationTimeVar:0.000000
 					emitSpeed:100
 					maxParticleNu:2000
 				}
@@ -140,10 +144,12 @@ project:{
 					endRotationVar:0.000000
 					position:[0.000000,0.000000]
 					positionVar:[0.000000,0.000000]
-					moveMode:"grounp"
+					moveMode:"group"
 				}
 				texture:{
 					url:"fire.png"
+					blendSrc:"SrcAlpha"
+					blendDst:"OneMinusSrcAlpha"
 				}
 				environment:{
 					mode:"gravity"
@@ -171,8 +177,8 @@ project:{
 			name:"sun"
 			attr:{
 				emitter:{
-					durationTime:0.000000
-					durationTimeVar:100000.000000
+					durationTime:1000.000000
+					durationTimeVar:0.000000
 					emitSpeed:100
 					maxParticleNu:1000000
 				}
@@ -195,10 +201,12 @@ project:{
 					endRotationVar:0.000000
 					position:[0.000000,0.000000]
 					positionVar:[0.000000,0.000000]
-					moveMode:"grounp"
+					moveMode:"free"
 				}
 				texture:{
 					url:"fire.png"
+					blendSrc:"SrcAlpha"
+					blendDst:"One"
 				}
 				environment:{
 					mode:"gravity"
@@ -226,8 +234,8 @@ project:{
 			name:"galaxy"
 			attr:{
 				emitter:{
-					durationTime:0.000000
-					durationTimeVar:100000.000000
+					durationTime:1000.000000
+					durationTimeVar:0.000000
 					emitSpeed:100
 					maxParticleNu:100000
 				}
@@ -250,10 +258,12 @@ project:{
 					endRotationVar:0.000000
 					position:[0.000000,0.000000]
 					positionVar:[0.000000,0.000000]
-					moveMode:"grounp"
+					moveMode:"group"
 				}
 				texture:{
 					url:"fire.png"
+					blendSrc:"SrcAlpha"
+					blendDst:"One"
 				}
 				environment:{
 					mode:"gravity"
@@ -281,8 +291,8 @@ project:{
 			name:"flower"
 			attr:{
 				emitter:{
-					durationTime:0.000000
-					durationTimeVar:1000.000000
+					durationTime:1000.000000
+					durationTimeVar:0.000000
 					emitSpeed:100
 					maxParticleNu:100000
 				}
@@ -305,10 +315,12 @@ project:{
 					endRotationVar:0.000000
 					position:[0.000000,0.000000]
 					positionVar:[0.000000,0.000000]
-					moveMode:"grounp"
+					moveMode:"group"
 				}
 				texture:{
 					url:"fire.png"
+					blendSrc:"SrcAlpha"
+					blendDst:"One"
 				}
 				environment:{
 					mode:"gravity"
@@ -336,8 +348,8 @@ project:{
 			name:"meteor"
 			attr:{
 				emitter:{
-					durationTime:0.000000
-					durationTimeVar:10000.000000
+					durationTime:1000.000000
+					durationTimeVar:0.000000
 					emitSpeed:100
 					maxParticleNu:10000
 				}
@@ -360,10 +372,12 @@ project:{
 					endRotationVar:0.000000
 					position:[0.000000,0.000000]
 					positionVar:[0.000000,0.000000]
-					moveMode:"grounp"
+					moveMode:"group"
 				}
 				texture:{
 					url:"fire.png"
+					blendSrc:"SrcAlpha"
+					blendDst:"One"
 				}
 				environment:{
 					mode:"gravity"
@@ -391,8 +405,8 @@ project:{
 			name:"spiral"
 			attr:{
 				emitter:{
-					durationTime:0.000000
-					durationTimeVar:10000.000000
+					durationTime:1000.000000
+					durationTimeVar:0.000000
 					emitSpeed:100
 					maxParticleNu:10000
 				}
@@ -415,10 +429,12 @@ project:{
 					endRotationVar:0.000000
 					position:[0.000000,0.000000]
 					positionVar:[0.000000,0.000000]
-					moveMode:"grounp"
+					moveMode:"group"
 				}
 				texture:{
 					url:"fire.png"
+					blendSrc:"SrcAlpha"
+					blendDst:"OneMinusSrcAlpha"
 				}
 				environment:{
 					mode:"gravity"
@@ -446,14 +462,14 @@ project:{
 			name:"explosion"
 			attr:{
 				emitter:{
-					durationTime:0.000000
-					durationTimeVar:10000.000000
-					emitSpeed:100
-					maxParticleNu:10000
+					durationTime:1.500000
+					durationTimeVar:0.000000
+					emitSpeed:1000
+					maxParticleNu:500
 				}
 				particle:{
-					lifeTime:5.000000
-					lifeTimeVar:2.000000
+					lifeTime:3.000000
+					lifeTimeVar:1.000000
 					startSize:15.000000
 					startSizeVar:10.000000
 					endSize:15.000000
@@ -470,10 +486,12 @@ project:{
 					endRotationVar:0.000000
 					position:[0.000000,0.000000]
 					positionVar:[0.000000,0.000000]
-					moveMode:"grounp"
+					moveMode:"group"
 				}
 				texture:{
 					url:"fire.png"
+					blendSrc:"SrcAlpha"
+					blendDst:"One"
 				}
 				environment:{
 					mode:"gravity"
@@ -501,8 +519,8 @@ project:{
 			name:"smoke"
 			attr:{
 				emitter:{
-					durationTime:0.000000
-					durationTimeVar:1000.000000
+					durationTime:1000.000000
+					durationTimeVar:0.000000
 					emitSpeed:100
 					maxParticleNu:10000
 				}
@@ -515,7 +533,7 @@ project:{
 					endSizeVar:10.000000
 					startColor:[204,204,204,255]
 					startColorVar:[51,51,51,0]
-					endColor:[0,0,0,255]
+					endColor:[0,0,0,0]
 					endColorVar:[0,0,0,0]
 					angle:90.000000
 					angleVar:5.000000
@@ -525,10 +543,12 @@ project:{
 					endRotationVar:0.000000
 					position:[0.000000,0.000000]
 					positionVar:[0.000000,0.000000]
-					moveMode:"grounp"
+					moveMode:"group"
 				}
 				texture:{
 					url:"fire.png"
+					blendSrc:"SrcAlpha"
+					blendDst:"OneMinusSrcAlpha"
 				}
 				environment:{
 					mode:"gravity"
@@ -556,10 +576,10 @@ project:{
 			name:"snow2"
 			attr:{
 				emitter:{
-					durationTime:0.000000
-					durationTimeVar:11000.000000
-					emitSpeed:100
-					maxParticleNu:1000
+					durationTime:100.000000
+					durationTimeVar:0.000000
+					emitSpeed:50
+					maxParticleNu:10000
 				}
 				particle:{
 					lifeTime:45.000000
@@ -580,17 +600,19 @@ project:{
 					endRotationVar:0.000000
 					position:[-400.000000,0.000000]
 					positionVar:[800.000000,0.000000]
-					moveMode:"grounp"
+					moveMode:"group"
 				}
 				texture:{
 					url:"fire.png"
+					blendSrc:"SrcAlpha"
+					blendDst:"OneMinusSrcAlpha"
 				}
 				environment:{
 					mode:"gravity"
 					gravity:{
 						speed:5.000000
 						speedVar:1.000000
-						gravity:[0.000000,-1.000000]
+						gravity:[0.000000,-2.000000]
 						radialAcceleration:0.000000
 						radialAccelerationVar:1.000000
 						tangentialAcceleration:0.000000
@@ -611,9 +633,9 @@ project:{
 			name:"rain"
 			attr:{
 				emitter:{
-					durationTime:0.000000
-					durationTimeVar:1000.000000
-					emitSpeed:100
+					durationTime:1000.000000
+					durationTimeVar:0.000000
+					emitSpeed:50
 					maxParticleNu:10000
 				}
 				particle:{
@@ -635,10 +657,12 @@ project:{
 					endRotationVar:0.000000
 					position:[-400.000000,0.000000]
 					positionVar:[800.000000,0.000000]
-					moveMode:"grounp"
+					moveMode:"group"
 				}
 				texture:{
 					url:"fire.png"
+					blendSrc:"SrcAlpha"
+					blendDst:"OneMinusSrcAlpha"
 				}
 				environment:{
 					mode:"gravity"

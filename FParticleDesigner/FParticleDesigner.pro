@@ -49,7 +49,8 @@ SOURCES += \
     src/operator/MpIoOperator.cc \
     src/MpConfig.cc \
     src/util/MpPathUtil.cc \
-    src/util/SdRenderUtil.cc
+    src/util/SdRenderUtil.cc \
+    src/widget/MpAboutDialog.cc
 
 HEADERS  += \
     src/widget/MpPropertyWidget.h \
@@ -75,13 +76,15 @@ HEADERS  += \
     src/MpConfig.h \
     src/util/MpPathUtil.h \
     src/util/SdRenderUtil.h \
-    src/util/SdUtil.h
+    src/util/SdUtil.h \
+    src/widget/MpAboutDialog.h
 
 FORMS    += \
     ui/emiter_setting.ui \
     ui/particle_setting.ui \
     ui/environment_setting.ui \
     ui/texture_setting.ui \
-    ui/input_text.ui
+    ui/input_text.ui \
+    ui/about_fp.ui
 
 

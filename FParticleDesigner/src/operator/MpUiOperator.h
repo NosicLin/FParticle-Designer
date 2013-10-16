@@ -23,6 +23,7 @@ class MpUiOperator:public QObject
 
 		/* texture */
 		void setTexture();
+
 };
 
 

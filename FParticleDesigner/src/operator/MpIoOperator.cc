@@ -134,8 +134,12 @@ MpProject* MpIoOperator::loadProject(FsFile* file)
 		}
 
         MpParticleEffect* effect=MpParticleEffect::create(d_attr);
-        effect->setName(s_name->cstr());
-        proj->addParticleEffect(effect);
+		if(effect)
+		{
+        	effect->setName(s_name->cstr());
+        	proj->addParticleEffect(effect);
+		}
+
 
         d_par->decRef();
         d_attr->decRef();
@@ -260,7 +264,7 @@ void MpIoOperator::saveParticleEffect(const char* prefix,FsFile* file,MpParticle
 			file->writeStr("%smoveMode:\"free\"\n",pre_tab5);
 			break;
 		case Particle2DEmitter::MOVE_GROUP:
-			file->writeStr("%smoveMode:\"grounp\"\n",pre_tab5);
+			file->writeStr("%smoveMode:\"group\"\n",pre_tab5);
 			break;
 	}
 

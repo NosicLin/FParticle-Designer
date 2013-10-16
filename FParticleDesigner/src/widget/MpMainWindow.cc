@@ -2,6 +2,7 @@
 #include "widget/MpMainWindow.h"
 #include "operator/MpOperator.h"
 #include "operator/MpUiOperator.h"
+#include "widget/MpAboutDialog.h"
 
 MpMainWindow::MpMainWindow()
 {
@@ -122,7 +123,18 @@ void MpMainWindow::connectSignal()
 	connect(ma_exportAll,SIGNAL(triggered()),MpOperator::ui(),SLOT(exportAllParticleEffect()));
 
 	connect(ma_newProject,SIGNAL(triggered()),MpOperator::ui(),SLOT(newProject()));
+
+    connect(ma_aboutThis,SIGNAL(triggered()),this,SLOT(slotOnAbout()));
+
 }
+
+
+void MpMainWindow::slotOnAbout()
+{
+	MpAboutDialog dialog;
+	dialog.exec();
+}
+
 
 
 

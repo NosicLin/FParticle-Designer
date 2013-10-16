@@ -21,6 +21,10 @@ class MpMainWindow:public QMainWindow
 		MpMainWindow();
 		~MpMainWindow();
 
+	public slots:
+		void slotOnAbout();
+
+
     protected:
 		void initMenuBar();
 		void initWidget();

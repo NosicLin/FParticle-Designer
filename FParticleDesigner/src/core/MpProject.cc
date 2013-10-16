@@ -101,11 +101,17 @@ int MpProject::getParticleEffectPos(MpParticleEffect* ef)
 	return -1;
 }
 
-
 MpParticleEffect* MpProject::getParticleEffect(int index)
 {
+	if(index>=m_particleEffects.size())
+	{
+        qDebug("Outof Range(index=%d,size=%d)",index,m_particleEffects.size());
+        return NULL;
+	}
+
 	return m_particleEffects[index];
 }
+
 
 
 MpParticleEffect* MpProject::getCurParticleEffect()

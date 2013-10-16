@@ -28,8 +28,6 @@
 
 NS_FS_USE
 
-
-
 void MpUiOperator::newParticle()
 {
 	char buf[1024];
@@ -302,25 +300,5 @@ void MpUiOperator::newProject()
 	proj->setDir(t_path_dir.c_str());
 	proj->setName(t_path_name.c_str());
 	MpOperator::data()->setCurProject(proj);
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

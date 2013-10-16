@@ -45,7 +45,7 @@ MpProject* MpGlobal::getCurProject()
 
 void  MpGlobal::setCurProject(MpProject* proj)
 {
-	qDebug("setCur Project=%x",long(proj));
+    //qDebug("setCur Project=%x",long(proj));
 	m_project=proj;
 }
 

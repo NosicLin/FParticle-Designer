@@ -93,17 +93,9 @@ void MpParticleViewWidget::paintGL()
     Vector2 minpos=toEditCoord(Vector2(0,s.height()));
     Vector2 maxpos=toEditCoord(Vector2(s.width(),0));
 
-    qDebug("pos=%f,%f",vx,vy);
-
-
-    qDebug("minpos=%f,%f",minpos.x,minpos.y);
-    qDebug("maxpos=%f,%f",maxpos.x,maxpos.y);
 
     minpos=minpos+Vector2(vx,vy);
     maxpos=maxpos+Vector2(vx,vy);
-
-    qDebug("minpos=%f,%f",minpos.x,minpos.y);
-    qDebug("maxpos=%f,%f",maxpos.x,maxpos.y);
 
 
 
@@ -205,9 +197,21 @@ void MpParticleViewWidget::timerUpdate()
 	}
 	Particle2DEffect* effect=mp_effect->getParticleEffect();
 
-	effect->update(16.0f/1000.0f);
+    effect->update(16.0f/1000.0f);
 	update();
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
